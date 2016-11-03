@@ -1,6 +1,14 @@
 language: python
+# workaround for 3.7 not available in default configuration
+# travis-ci/travis-ci#9815#issuecomment-401756442
+dist: xenial
+sudo: false
 python:
   - 2.7
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
 addons:
   apt:
     packages:
@@ -8,7 +16,7 @@ addons:
 install:
   - pip install tox
   - pip install tox-travis
-script: tox -e ALL
+script: tox
 deploy:
   provider: pypi
   distributions: "sdist bdist_wheel"
