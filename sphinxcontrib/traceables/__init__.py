@@ -1,10 +1,10 @@
 
-import infrastructure
-import display
-import traceables
-import list
-import matrix
-import graph
+from . import infrastructure
+from . import display
+from . import traceables
+from . import list
+from . import matrix
+from . import graph
 
 
 # ==========================================================================
