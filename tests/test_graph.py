@@ -63,7 +63,8 @@ def test_graph_html(app, status, warning):
     # Verify that output contains link to graph.
     with (app.outdir / "index.html").open('rb') as index_html_file:
         index_html = index_html_file.read()
-    assert re.search('<img src="_images/graphviz-[^"]+.png"', index_html)
+    assert re.search('<img src="_images/graphviz-[^"]+.png"',
+                     index_html.decode('utf-8'))
 
 @with_app(buildername="html", srcdir="graph_error")
 def test_graph_no_valid_start_tags(app, status, warning):
@@ -91,4 +92,4 @@ def test_graph_no_valid_start_tags(app, status, warning):
     with (app.outdir / "index.html").open('rb') as index_html_file:
         index_html = index_html_file.read()
     assert re.search("Traceables: no valid tags for graph,"
-                     " so skipping graph", index_html)
+                     " so skipping graph", index_html.decode('utf-8'))
