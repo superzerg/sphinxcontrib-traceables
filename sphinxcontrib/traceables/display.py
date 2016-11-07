@@ -68,6 +68,9 @@ class TraceableDisplayFormatterBase(object):
         raise NotImplementedError()
 
     def create_title_node(self, traceable):
+        raise NotImplementedError()
+
+    def create_title_content(self, traceable):
         if traceable.has_title():
             title_content = nodes.inline()
             title_content += nodes.literal(text=traceable.tag)
@@ -76,10 +79,7 @@ class TraceableDisplayFormatterBase(object):
         else:
             title_content = nodes.literal(text=traceable.tag)
 
-        title_node = nodes.inline()
-        title_node += title_content
-
-        return [title_node]
+        return title_content
 
 
 # -----------------------------------------------------------------------------
@@ -105,6 +105,12 @@ class TraceableDisplayAdmonitionFormatter(TraceableDisplayFormatterBase):
             admonition += node.children.pop(0)
 
         return [admonition]
+
+    def create_title_node(self, traceable):
+        title_content = self.create_title_content(traceable)
+        title_node = nodes.title(traceable.tag, "", title_content)
+
+        return [title_node]
 
     def create_attribute_list_node(self, app, docname, traceable):
         relationships = traceable.relationships
@@ -222,6 +228,13 @@ class TraceableDisplayTableFormatter(TraceableDisplayFormatterBase):
         wrapper += table
 
         return [wrapper] + node.children
+
+    def create_title_node(self, traceable):
+        title_content = self.create_title_content(traceable)
+        title_node = nodes.inline()
+        title_node += title_content
+
+        return [title_node]
 
     @staticmethod
     def visit_latex(translator, node):
