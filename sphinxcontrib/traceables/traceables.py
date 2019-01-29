@@ -14,7 +14,6 @@ from sphinx import addnodes
 from sphinx.locale import _
 from sphinx.roles import XRefRole
 from sphinx.environment import NoUri
-from sphinx.util.compat import make_admonition
 from sphinx.util.nodes import make_refnode
 
 from .infrastructure import ProcessorBase, Traceable, TraceablesStorage

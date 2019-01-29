@@ -14,7 +14,6 @@ from sphinx.locale import _
 from sphinx.roles import XRefRole
 from sphinx.environment import NoUri
 from sphinx.errors import ExtensionError
-from sphinx.util.compat import make_admonition
 from sphinx.util.nodes import make_refnode
 from sphinx.util.osutil import copyfile
 
