@@ -31,7 +31,7 @@ def test_xml_basics(app, status, warning):
     """
 
     app.builder.build_all()
-    tree = ElementTree.parse(app.outdir / "index.xml")
+    tree = ElementTree.parse(os.path.join(app.outdir, "index.xml"))
 #    print pretty_print_xml(tree.getroot())
 
     # Verify that 2 traceables are found.
@@ -82,7 +82,7 @@ def test_html_builder(app, status, warning):
     """
 
     app.builder.build_all()
-    with open(app.outdir / "index.html") as index_file:
+    with open(os.path.join(app.outdir, "index.html")) as index_file:
         index_html = index_file.read()
 
     # Verify that all traceable's have an ID.
@@ -129,5 +129,5 @@ def test_latex_builder(app, status, warning):
     """
 
     app.builder.build_all()
-#    with open(app.outdir / "Python.tex") as index_file:
+#    with open(os.path.join(app.outdir, "Python.tex")) as index_file:
 #        index_tex = index_file.read()
