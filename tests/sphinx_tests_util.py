@@ -27,6 +27,7 @@ from nose import tools, SkipTest
 from docutils import nodes
 from docutils.parsers.rst import directives, roles
 
+from sphinx import __version__ as SphinxVersion
 from sphinx import application
 from sphinx.builders.latex import LaTeXBuilder
 from sphinx.theming import Theme
@@ -40,6 +41,9 @@ try:
     from unittest import mock
 except ImportError:
     import mock
+
+from distutils.version import LooseVersion
+SPHINX_LT_16 = LooseVersion(SphinxVersion) < LooseVersion('1.6')
 
 
 __all__ = [
@@ -230,7 +234,9 @@ class TestApp(application.Sphinx):
             raise
 
     def cleanup(self, doctrees=False):
-        Theme.themes.clear()
+        if SPHINX_LT_16:
+            from sphinx.theming import Theme
+            Theme.themes.clear()
         AutoDirective._registry.clear()
         ModuleAnalyzer.cache.clear()
         LaTeXBuilder.usepackages = []
