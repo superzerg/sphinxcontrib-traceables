@@ -16,7 +16,7 @@ from sphinx.roles import XRefRole
 from sphinx.environment import NoUri
 from sphinx.util.nodes import make_refnode
 
-from .infrastructure import ProcessorBase, Traceable, TraceablesStorage
+from .infrastructure import InfrastructureLogging, ProcessorBase, Traceable, TraceablesStorage
 from .display import traceable_display
 from .utils import is_valid_traceable_attribute_name
 
@@ -52,7 +52,7 @@ class DefaultDict(dict):
 # =============================================================================
 # Directives
 
-class TraceableDirective(Directive):
+class TraceableDirective(Directive, InfrastructureLogging):
 
     required_arguments = 1
     optional_arguments = 0
@@ -93,7 +93,7 @@ class TraceableDirective(Directive):
             else:
                 message = ("Traceable attribute has invalid syntax: {0!r}"
                            .format(name))
-                env.warn(env.docname, message, self.lineno)
+                self.document_warning(env, message, self.lineno)
                 msg = nodes.system_message(message=message,
                                            level=2, type="ERROR",
                                            source=env.docname,
@@ -110,12 +110,12 @@ class TraceableDirective(Directive):
         try:
             TraceablesStorage(env).add_traceable(traceable)
         except ValueError, e:
-            env.warn_node(e.message, target_node)
+            self.node_warning(env, e, target_node)
             # TODO: Should use error handling similar to this:
             # Error = ExtensionError
             # except self.Error, error:
             #    message = str(error)
-            #    self.env.warn_node(message, node)
+            #    self.node_warning(env, message, node)
             #    msg = nodes.system_message(message=message,
             #                               level=2, type="ERROR",
             #                               source=node.source,
@@ -195,8 +195,8 @@ class XrefProcessor(ProcessorBase):
             tag = xref_node["reftarget"]
             traceable = self.storage.get_or_create_traceable_by_tag(tag)
             if traceable.is_unresolved:
-                self.env.warn_node("Traceables: no traceable with tag '{0}'"
-                                   " found!".format(tag), xref_node)
+                message = "Traceables: no traceable with tag '{0}' found!".format(tag)
+                self.node_warning(self.env, message, xref_node)
             new_node = traceable.make_reference_node(self.app.builder,
                                                      docname)
             xref_node.replace_self(new_node)
