@@ -67,7 +67,7 @@ class GraphProcessor(ProcessorBase):
             if not start_traceables:
                 message = ("Traceables: no valid tags for graph,"
                            " so skipping graph")
-                self.env.warn_node(message, graph_node)
+                self.node_warning(self.env, message, graph_node)
                 msg = nodes.system_message(message=message,
                                            level=2, type="ERROR",
                                            source=graph_node["source"],
@@ -99,8 +99,8 @@ class GraphProcessor(ProcessorBase):
                 traceable = self.storage.get_traceable_by_tag(tag)
                 traceables.append(traceable)
             except KeyError:
-                self.env.warn_node("Traceables: no traceable with tag '{0}'"
-                                   " found!".format(tag), node)
+                message = "Traceables: no traceable with tag '{0}' found!".format(tag)
+                self.node_warning(self.env, message, node)
         return traceables
 
     def parse_relationships(self, input):

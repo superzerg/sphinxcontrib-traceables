@@ -8,18 +8,43 @@ import os
 import glob
 import collections
 from docutils import nodes
+from docutils.utils import get_source_line
 from docutils.parsers.rst import Directive, directives
+from sphinx import __version__ as SphinxVersion
 from sphinx import addnodes
 from sphinx.locale import _
 from sphinx.roles import XRefRole
 from sphinx.environment import NoUri
 from sphinx.errors import ExtensionError
-from sphinx.util.compat import make_admonition
 from sphinx.util.nodes import make_refnode
 from sphinx.util.osutil import copyfile
 
 from .filter import ExpressionMatcher, FilterError, FilterFail
 
+from distutils.version import LooseVersion
+SPHINX_LT_16 = LooseVersion(SphinxVersion) < LooseVersion('1.6')
+
+
+# =============================================================================
+# Infrastructure basic classes
+
+class InfrastructureLogging(object):
+
+    def document_warning(self, env, msg, lineno=None):
+        if SPHINX_LT_16:
+            env.warn(env.docname, msg, lineno)
+        else:
+            from sphinx.util import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(msg, location=(env.docname, lineno))
+
+    def node_warning(self, env, msg, node):
+        if SPHINX_LT_16:
+            env.warn_node(msg, node)
+        else:
+            from sphinx.util import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(msg, location=get_source_line(node))
 
 # =============================================================================
 # Information storage classes
@@ -101,7 +126,7 @@ class TraceablesStorage(object):
 # =============================================================================
 # Processor
 
-class Traceable(object):
+class Traceable(InfrastructureLogging):
 
     def __init__(self, target_node, unresolved_tag=None):
         if target_node and not unresolved_tag:
@@ -155,8 +180,8 @@ class Traceable(object):
                                     text_node,
                                     self.tag)
             except NoUri:
-                builder.env.warn_node("Traceables: No URI for '{0}' available!"
-                                      .format(self.tag), self.target_node)
+                message = "Traceables: No URI for '{0}' available!".format(self.tag)
+                self.node_warning(builder.env, message, self.target_node)
                 return text_node
         else:
             return text_node
@@ -188,7 +213,7 @@ class ProcessorManager(object):
             processor.process_doctree(doctree, docname)
 
 
-class ProcessorBase(object):
+class ProcessorBase(InfrastructureLogging):
 
     Error = ExtensionError
 
@@ -203,9 +228,9 @@ class ProcessorBase(object):
         for node in doctree.traverse(self.process_node_type):
             try:
                 self.process_node(node, doctree, docname)
-            except self.Error, error:
+            except self.Error as error:
                 message = str(error)
-                self.env.warn_node(message, node)
+                self.node_warning(self.env, message, node)
                 msg = nodes.system_message(message=message,
                                            level=2, type="ERROR",
                                            source=node.source,
@@ -253,7 +278,7 @@ class FormatProcessorBase(ProcessorBase):
             message = ("Unknown formatter name: '{0}';"
                        " available formatters: {1}"
                        .format(name, ", ".join(valid_formatters.keys())))
-            self.env.warn_node(message, node)
+            self.node_warning(self.env, message, node)
             new_nodes = [nodes.system_message(message=message,
                                               level=2, type="ERROR",
                                               source=node["source"],
@@ -286,7 +311,7 @@ class TraceablesFilter(object):
             try:
                 if self.traceable_matches(matcher, traceable):
                     matching_traceables.append(traceable)
-            except FilterFail, error:
+            except FilterFail as error:
                 continue
 
         return matching_traceables
