@@ -17,6 +17,9 @@ More information is available here:
 - Download: https://pypi.python.org/pypi/sphinxcontrib-traceables
 - Development: https://github.com/t4ngo/sphinxcontrib-traceables
 
+As the original package (https://github.com/t4ngo/sphinxcontrib-traceables) seems to be unmaintained, I updated it so it is compatible with python3 and `Sphinx`_ 3.6.
+Thanks to rexut for doing part of the job.
+
 .. _Sphinx: http://sphinx-doc.org/
 
 .. |docs-status| image:: https://readthedocs.org/projects/sphinxcontrib-traceables/badge/?version=latest

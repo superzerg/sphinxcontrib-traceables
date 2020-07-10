@@ -26,9 +26,9 @@ setup(
       version=get_version(),
       description="Sphinx extension that adds traceability within "
                   "documentation",
-      author="Christo Butcher",
+      author="Yves Renier, Stephan Linz, Christo Butcher",
       author_email="",
-      url="https://github.com/t4ngo/sphinxcontrib-traceables",
+      url="https://github.com/superzerg/sphinxcontrib-traceables",
       license="Apache 2.0",
       long_description=read("README.rst"),
       packages=find_packages(),

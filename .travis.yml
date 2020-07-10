@@ -1,10 +1,10 @@
 language: python
-# workaround for 3.7 not available in default configuration
+# workaround for 3.8 not available in default configuration
 # travis-ci/travis-ci#9815#issuecomment-401756442
-dist: xenial
+dist: bionic
 sudo: false
 python:
-  - 3.7
+  - 3.8
 addons:
   apt:
     packages:
