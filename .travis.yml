@@ -8,7 +8,7 @@ addons:
     packages:
       - graphviz
 install:
-  - pip install https://github.com/superzerg/sphinxcontrib-traceables.git
+  - pip install git+https://github.com/superzerg/sphinxcontrib-traceables.git
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
