@@ -14,13 +14,17 @@ as relationship graphs.
 More information is available here:
 
 - Documentation: https://sphinxcontrib-traceables.readthedocs.org/en/latest/
-- Download: https://pypi.python.org/pypi/sphinxcontrib-traceables
-- Development: https://github.com/t4ngo/sphinxcontrib-traceables
+- Download: https://pypi.python.org/pypi/sphinxcontrib-traceables0.2
+- Development: https://github.com/superzerg/sphinxcontrib-traceables
 
 As the original package (https://github.com/t4ngo/sphinxcontrib-traceables) seems to be unmaintained, I updated it so it is compatible with python3 and `Sphinx`_ 3.6.
-Thanks to rexut for doing part of the job.
+Thanks to `t4ngo`_ for the great extension and to `rexut`_ for the upgrade to python3.
 
 .. _Sphinx: http://sphinx-doc.org/
+
+.. _t4ngo: https://github.com/t4ngo
+
+.. _rexut: https://github.com/rexut
 
 .. |docs-status| image:: https://readthedocs.org/projects/sphinxcontrib-traceables/badge/?version=latest
     :alt: Documentation status
@@ -35,14 +39,14 @@ Thanks to rexut for doing part of the job.
    :target: https://coveralls.io/github/superzerg/sphinxcontrib-traceables
    :alt: Test coverage status
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/sphinxcontrib-traceables.svg
+.. |pypi-version| image:: https://img.shields.io/pypi/v/sphinxcontrib-traceables0.2.svg
     :alt: Latest version at PyPI
-    :target: https://pypi.python.org/pypi/sphinxcontrib-traceables
+    :target: https://pypi.python.org/pypi/sphinxcontrib-traceables0.2
 
-.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/sphinxcontrib-traceables.svg
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/sphinxcontrib-traceables0.2.svg
     :alt: Downloads from PyPI last month
-    :target: https://pypi.python.org/pypi/sphinxcontrib-traceables
+    :target: https://pypi.python.org/pypi/sphinxcontrib-traceables0.2
 
-.. |pypi-license| image:: https://img.shields.io/pypi/l/sphinxcontrib-traceables.svg
-    :alt: License specified at PyPI
-    :target: https://pypi.python.org/pypi/sphinxcontrib-traceables
+.. |pypi-license| image:: https://img.shields.io/github/license/superzerg/sphinxcontrib-traceables
+    :alt: Licence@GitHub
+    :target: https://github.com/superzerg/sphinxcontrib-traceables/blob/master/LICENSE.rst

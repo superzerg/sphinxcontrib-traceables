@@ -2,26 +2,23 @@ language: python
 dist: bionic
 sudo: false
 python:
-  - 3.8
+- 3.8
 addons:
   apt:
     packages:
-      - graphviz
+    - graphviz
 install:
-  - pip install git+https://github.com/superzerg/sphinxcontrib-traceables.git
-  - pip install pytest
-  - pip install pytest-cov
-  - pip install coveralls
+- pip install git+https://github.com/superzerg/sphinxcontrib-traceables.git
+- pip install pytest
+- pip install pytest-cov
+- pip install coveralls
 script:
-  - pytest --cov=sphinxcontrib.traceables
+- pytest --cov=sphinxcontrib.traceables
 after_success:
-  - coveralls
+- coveralls
 deploy:
   provider: pypi
-  distributions: "sdist bdist_wheel"
-  on:
-    tags: true
-  user:
-    secure: DVlBBVz7BT3EgRVHwQwrfkcwuJo8JyZKF/d3o3+WAb4xcV8iB8yIQpuFyt/x5xwlkBTDdLFUyPxNb99ciJt9KSYcnr27cnppfWfGne/VGM211ZcPNh/biOklvE7yDwDA1ILZPFbjx6Mqi6dHI+dXQzsuPtj3SOPKlrrRVqKaqYW64Qzq7qEzSYiUhgieFP0b6NpCAmsDLSlp6QVaEktd3wXCELLAnTOpeXjpvTSPUzOWh9R4EXgI4aauwTdj9yJiU1NrDmrFg/kURAT0rUlqzQ3AnQTHLnzHbqUANahYHzDbkLqxmtH8/vSCz2zTVRAD6Ri1rTlld571NxMniNbyyrdIsQPtgYxTaFqc3zeUzX76qmEMIOj8z2EfteLzogMajtdTXSb3w/1y+JxXSoo1pNLNivyoaHG9FZ89pgG8B756zmPLjg0LysBMhpu1dGJtC2QRaI4HE5cFiBoL1ctTAaM5NWkpfeYaD2J5VLSU1ABCj5Ej1qD6AfnvY6Zqnfc6d6oYaSnCRLVX5+Z770nhQXlzGiiyjuCR3rLceaCtQJWuvgyTAc46yK4H5yA08WKfiPNRtXdlHYVEQRH64th1NZmr7yxbOa4TmSwBChrn3p9o2ZUbXPZ6MLZdU1FQ49V7cLA4KIwxoP+V7JYjqK3sFgDg9Tah+ih6ytdoQ59N4Ss=
+  distributions: sdist bdist_wheel
+  username: "__token__"
   password:
-    secure: h1OjdEm6a8jvf99Dh+Y5sLbs9Gz0GsVoYG46YN48aeb3mvcSthyZM6ireR1FUiFD4Y/WRrlzVMk2riEAXXhaz/2Nq7hr6Ym5p1FClPmoiWdLR6cvDWxFVqZgIcYi47ToCMFbBlXu/sAC3iBftzsQcPShMdG6MgwYGnMJSKBcrSue1e6wt8Uxl54EPRSEMPnXDq4p8mGSpDgqae7OKJV20QmyEjrrezvbLtwwfxiCl3rVyzehcBmdtSDGiId35WNeFmIwx0Lzc60Yy1Bhpnjw4+RS6fYQf0br+iWUD/RXgvdvmPbVWjZ6vojtfivEQlOfl9fxvCo+/qsBxdaEymroBG8RaAYzVMSfWiUwBxIwmB7jk2AWQdGdDDfkXNLsilEBgNJQLYIt+XWYxdPWoJY+VDc4/oiuMQoCN/FPxtBSmDWb4u28tcMjLB17AnK7KUnoQrFBdA9wnVKaZLh7/9/du+NL9xVmIknSmK9SzC78t+2Bu1eMVHR+qICLlECqge7xhd4X+4pv42hKKUAlsVPiHMatVc+F5eTKGJ8SmG+At7UnSaGGWi+j82QSOXD16hpub5cwVfHYRafyyhK1Q9prVgrYBtnIsn+WSVMTgJE4NuOY5uXflg2yNZhdPHWxI6JctK3tFTaG71fDZ1qJqt3oKh790CTsLqbI7+WTDNvt1Ks=
+    secure: tBd92kmXZsj7+N36Eo7MRj4iBcsWlXjffLZe08mDcuKSUW4yq9Qbtafwfxi+g/cGWHRZUvlSkfwNUJXrFbE9uvlj61NUKSMhMyJnSMQtv9vx8fJ3y6xG7+qSy4r/nt0Tj0lj6ReOWaKvEmBE84nRA7RPL7mqlyKiF1jp9gQVUUSr/H3zRwlqd0GLAStq5wNIh8CE3WGH42WtDmwewEDtGL94lddR3F32r04rDJ7e+zRmbHhC+bABIQbYq99YJRfA/lThICCGCSn+oILO+T/X2DUYCAuPwTEFkg3GlwEYCiI4218O6Up3g5nDLhPW6HuPEVDtZNpglEj3UPCg9RCAyb4yORUs/6UIDOmavpx4ge+aOuYOUpJZeaONuoXrJGAbBBFA2OXbV1xvjTNiUWvQyQvBXnryENQR6tiEr6znwDn0mnR7e2LITFaT5XM2Et/R63tW2it/OYI4LilP3+f39zLiW+IL+3ixKI2j5DK4GYwFqIaxehlGzgEizjXKkuEi4+2++Us7KoAV8ijFaMSsFwIP0ntEFwuof7Bdy00gYjZ2edpOO/B2SIoxZBavxQo7RQZpSDmBeA+9HekBJL+OGE0qBP2L+4b/W+msKa+qUy61VVx6tTgkqqG76CwbTDtt2qr20D/cy9eWOsUYucuqCECiM2XxP+NzHbIyjgivpJw=
