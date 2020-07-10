@@ -1,16 +1,6 @@
 
 from setuptools import setup, find_packages
 
-try: # for pip >= 10
-    from pip._internal.req import parse_requirements
-except ImportError: # for pip <= 9.0.3
-    from pip.req import parse_requirements
-
-try: # for pip >= 10
-    from pip._internal.download import PipSession
-except ImportError: # for pip <= 9.0.3
-    from pip.download import PipSession
-
 import os
 
 
@@ -32,9 +22,8 @@ def get_version():
 
 
 def get_requirements():
-    requirements = parse_requirements("requirements.txt",
-                                      session=PipSession())
-    return [str(r.req) for r in requirements]
+    with open('requirements.txt') as f:
+        return f.readlines()
 
 
 setup(
