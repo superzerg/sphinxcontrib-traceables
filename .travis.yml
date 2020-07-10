@@ -17,8 +17,7 @@ script:
 after_success:
 - coveralls
 deploy:
-  on:
-    tags: true
+  edge: true
   provider: pypi
   username: "__token__"
 distributions: "sdist bdist_wheel"
