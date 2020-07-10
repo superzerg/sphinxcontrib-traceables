@@ -1,15 +1,14 @@
-
+import pytest
 import os
 import re
 from xml.etree import ElementTree
-from utils import with_app, pretty_print_xml
 
 
 # =============================================================================
 # Tests
 
-@with_app(buildername="xml", srcdir="graph", warningiserror=True)
-def test_graph_xml(app, status, warning):
+@pytest.mark.sphinx(buildername="xml", testroot="graph")
+def test_graph_xml(app):
     """Verify creation of graphviz nodes
 
         .. traceable:: TEST-GRAPHXML
@@ -36,8 +35,8 @@ def test_graph_xml(app, status, warning):
     # Verify that 1 graphviz node is found.
     assert len(tree.findall(".//graphviz")) == 1
 
-@with_app(buildername="html", srcdir="graph", warningiserror=True)
-def test_graph_html(app, status, warning):
+@pytest.mark.sphinx(buildername="html", testroot="graph")
+def test_graph_html(app):
     """Verify creation of traceable-graph image files
 
         .. traceable:: TEST-GRAPHHTML
@@ -66,8 +65,8 @@ def test_graph_html(app, status, warning):
     assert re.search('<img src="_images/graphviz-[^"]+.png"',
                      index_html.decode('utf-8'))
 
-@with_app(buildername="html", srcdir="graph_error")
-def test_graph_no_valid_start_tags(app, status, warning):
+@pytest.mark.sphinx(buildername="html", testroot="graph_error")
+def test_graph_no_valid_start_tags(app):
     """Verify error handling of traceable-graph without start tags
 
         .. traceable:: TEST-GRAPHNOSTARTTAGS

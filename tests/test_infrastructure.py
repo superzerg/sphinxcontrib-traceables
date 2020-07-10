@@ -1,15 +1,10 @@
-
-from nose.tools import eq_, assert_raises
-from utils import with_app, pretty_print_xml
-from sphinxcontrib.traceables.infrastructure import (Traceable,
-                                                     TraceablesStorage)
+import pytest
+from nose.tools import assert_raises
+from sphinxcontrib.traceables.infrastructure import TraceablesStorage
 
 
-# =============================================================================
-# Tests
-
-@with_app(buildername="xml", srcdir="basics")
-def test_infrastructure(app, status, warning):
+@pytest.mark.sphinx(buildername="xml", testroot="basics")
+def test_infrastructure(app):
     app.build()
     storage = TraceablesStorage(app.env)
 

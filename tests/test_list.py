@@ -1,14 +1,10 @@
-
+import pytest
 import os
 from xml.etree import ElementTree
-from utils import with_app, pretty_print_xml
 
 
-# =============================================================================
-# Tests
-
-@with_app(buildername="xml", srcdir="list", warningiserror=True)
-def test_list(app, status, warning):
+@pytest.mark.sphinx(buildername="xml", testroot="list")
+def test_list(app):
     app.build()
 
     # Verify that basic list has 2 list item nodes.

@@ -1,16 +1,11 @@
-
+import pytest
 import os
 from xml.etree import ElementTree
-from .utils import with_app
 from html.parser import HTMLParser
 
 
-
-# =============================================================================
-# Tests
-
-@with_app(buildername="xml", srcdir="basics")
-def test_xml_basics(app, status, warning):
+@pytest.mark.sphinx(buildername="xml", testroot="basics")
+def test_xml_basics(app, warning):
     """Verify definition of and linking between traceables
 
         .. traceable:: TEST-TRACEDEF
@@ -62,9 +57,8 @@ def test_xml_basics(app, status, warning):
         "WARNING: Traceables: no traceable with tag"
         " 'NONEXISTENT' found!") > 0)
 
-
-@with_app(buildername="html", srcdir="basics")
-def test_html_builder(app, status, warning):
+@pytest.mark.sphinx(buildername="html", testroot="basics")
+def test_html_builder(app):
     """Verify that html builder runs without errors
 
         .. traceable:: TEST-HTMLBUILD
@@ -108,9 +102,8 @@ class HTMLTraceableIdVerifier(HTMLParser):
                'attribute, but none found: {0!r}'
                .format(self.get_starttag_text()))
 
-
-@with_app(buildername="latex", srcdir="basics")
-def test_latex_builder(app, status, warning):
+@pytest.mark.sphinx(buildername="latex", testroot="basics")
+def test_latex_builder(app):
     """Verify that latex builder runs without errors
 
         .. traceable:: TEST-LATEXBUILD

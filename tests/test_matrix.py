@@ -1,14 +1,11 @@
 
 import os
 from xml.etree import ElementTree
-from utils import with_app, pretty_print_xml
+import pytest
 
 
-# =============================================================================
-# Tests
-
-@with_app(buildername="xml", srcdir="matrix", warningiserror=True)
-def test_matrix_structure(app, status, warning):
+@pytest.mark.sphinx(buildername="xml", testroot="matrix")
+def test_matrix_structure(app):
     '''Verify generated XML structure for different matrix formats'''
     app.build()
 

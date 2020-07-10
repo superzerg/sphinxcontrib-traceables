@@ -40,7 +40,7 @@ setup(
       platforms="any",
       tests_require=[
           'nose',
-          ''
+          'pytest'
       ],
       classifiers=[
                    "Development Status :: 3 - Alpha",

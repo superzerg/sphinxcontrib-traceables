@@ -1,10 +1,7 @@
-from .utils import with_app
+import pytest
 
 
-# =============================================================================
-# Tests
-
-@with_app(buildername="xml", srcdir="errors")
+@pytest.mark.sphinx(buildername="xml", testroot="errors")
 def test_basics(app, status, warning):
     app.build()
 #    tree = ElementTree.parse(app.outdir / "index.xml")

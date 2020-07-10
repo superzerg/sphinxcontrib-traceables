@@ -1,6 +1,6 @@
 import sys
 from nose.tools import assert_raises
-from sphinxcontrib_traceables.filter import FilterError, ExpressionMatcher
+from sphinxcontrib.traceables.filter import FilterError, ExpressionMatcher
 from sphinxcontrib.traceables.infrastructure import Traceable, TraceablesFilter
 
 
