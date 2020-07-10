@@ -62,6 +62,7 @@ before_install:
 install:
 - pip3 install --upgrade pip
 - pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
+- pip3 install nose
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
