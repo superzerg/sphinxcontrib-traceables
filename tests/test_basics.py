@@ -1,13 +1,9 @@
 
 import os
 from xml.etree import ElementTree
-from utils import with_app, pretty_print_xml
+from .utils import with_app
+from html.parser import HTMLParser
 
-try:
-    from html.parser import HTMLParser
-except ImportError:
-    # fall back to Python 2
-    from HTMLParser import HTMLParser
 
 
 # =============================================================================

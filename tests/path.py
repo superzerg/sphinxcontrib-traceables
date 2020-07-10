@@ -22,13 +22,6 @@ class path(text_type):
     """
     Represents a path which behaves like a string.
     """
-    if PY2:
-        def __new__(cls, s, encoding=FILESYSTEMENCODING, errors='strict'):
-            if isinstance(s, str):
-                s = s.decode(encoding, errors)
-                return text_type.__new__(cls, s)
-            return text_type.__new__(cls, s)
-
     @property
     def parent(self):
         """
@@ -199,16 +192,17 @@ class path(text_type):
     __div__ = __truediv__ = joinpath
 
     def __repr__(self):
-        return '%s(%s)' % (self.__class__.__name__, text_type.__repr__(self))
+        return '%s(%s)' % (self.__class__.__name__, str.__repr__(self))
 
 
 # Lives here only to avoid circular references;  use it from util.py!
-class _repr_text(text_type):
+class _repr_text(str):
     def __repr__(self):
         return self._repr
 class _repr_bin(binary_type):
     def __repr__(self):
         return self._repr
+
 
 def repr_as(string, repr_):
     wrapper = _repr_text if isinstance(string, text_type) else _repr_bin

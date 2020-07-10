@@ -1,8 +1,8 @@
 
 import os
-import sphinx_tests_util
+from sphinx_testing.util import with_app
 from xml.etree import ElementTree
-from xml.dom import minidom
+from xml.dom.minidom import parseString
 
 
 # =============================================================================
@@ -14,7 +14,7 @@ def srcdir(name):
 
 
 def pretty_print_xml(node):
-    minidom_xml = minidom.parseString(ElementTree.tostring(node))
+    minidom_xml = parseString(ElementTree.tostring(node))
     output = minidom_xml.toprettyxml(indent="  ")
     lines = [line for line in output.splitlines() if line.strip()]
     print("\n".join(lines))
@@ -31,4 +31,4 @@ def with_app(*args, **kwargs):
     if "freshenv" not in kwargs:
         kwargs["freshenv"] = True
 
-    return sphinx_tests_util.with_app(*args, **kwargs)
+    return with_app(*args, **kwargs)
