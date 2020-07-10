@@ -3,16 +3,33 @@ jobs:
   allow_failures:
     - os: osx
   include:
-    - os: linux
+    - name: "Pyhton on bionic"
+      os: linux
       dist: bionic
-    - os: linux
+      sudo: false
+      python:
+        - 3.8
+        - 3.7
+        - 3.6
+    - name: "Pyhton on xenial"
+      os: linux
       dist: xenial
-    - os: osx
-sudo: false
-python:
-- 3.8
-- 3.7
-- 3.6
+      sudo: false
+      python:
+        - 3.8
+        - 3.7
+        - 3.6
+    - name: "Python 3.7.4 on macOS"
+      os: osx
+      osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
+      language: shell       # 'language: python' is an error on Travis CI macOS
+    - name: "Python 3.8.0 on Windows"
+    os: windows           # Windows 10.0.17134 N/A Build 17134
+    language: shell       # 'language: python' is an error on Travis CI Windows
+    before_install:
+      - choco install python --version 3.8.0
+      - python -m pip install --upgrade pip
+    env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 addons:
   apt:
     packages:
@@ -21,10 +38,11 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install graphviz; fi
 install:
-- pip install git+https://github.com/superzerg/sphinxcontrib-traceables.git
-- pip install pytest-cov
-- pip install coveralls
-- pip install twine
+- pip3 install --upgrade pip
+- pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
+- pip3 install pytest-cov
+- pip3 install coveralls
+- pip3 install twine
 script:
 - pytest --cov=sphinxcontrib.traceables
 after_success:
