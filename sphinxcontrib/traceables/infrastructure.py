@@ -228,7 +228,7 @@ class ProcessorBase(InfrastructureLogging):
         for node in doctree.traverse(self.process_node_type):
             try:
                 self.process_node(node, doctree, docname)
-            except self.Error, error:
+            except self.Error as error:
                 message = str(error)
                 self.node_warning(self.env, message, node)
                 msg = nodes.system_message(message=message,
@@ -311,7 +311,7 @@ class TraceablesFilter(object):
             try:
                 if self.traceable_matches(matcher, traceable):
                     matching_traceables.append(traceable)
-            except FilterFail, error:
+            except FilterFail as error:
                 continue
 
         return matching_traceables
