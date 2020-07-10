@@ -54,7 +54,7 @@ setup(
                    "License :: OSI Approved :: Apache Software License",
                    "Natural Language :: English",
                    "Operating System :: OS Independent",
-                   "Programming Language :: Python",
+                   "Programming Language :: Python :: 3",
                    "Topic :: Software Development :: Documentation",
                    "Topic :: Software Development :: Libraries :: "
                         "Python Modules",
