@@ -13,3 +13,6 @@ dist/
 
 # Test artifacts
 .coverage
+
+#pycharm stuff
+.idea/
