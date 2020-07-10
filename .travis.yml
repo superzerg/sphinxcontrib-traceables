@@ -11,11 +11,13 @@ jobs:
       python: 3.8
       deploy:
         edge: true
-        provider: pypi
+#        provider: pypi
+        provider: testpypi
         username: "__token__"
         distributions: "sdist bdist_wheel"
         password:
-          secure: tBd92kmXZsj7+N36Eo7MRj4iBcsWlXjffLZe08mDcuKSUW4yq9Qbtafwfxi+g/cGWHRZUvlSkfwNUJXrFbE9uvlj61NUKSMhMyJnSMQtv9vx8fJ3y6xG7+qSy4r/nt0Tj0lj6ReOWaKvEmBE84nRA7RPL7mqlyKiF1jp9gQVUUSr/H3zRwlqd0GLAStq5wNIh8CE3WGH42WtDmwewEDtGL94lddR3F32r04rDJ7e+zRmbHhC+bABIQbYq99YJRfA/lThICCGCSn+oILO+T/X2DUYCAuPwTEFkg3GlwEYCiI4218O6Up3g5nDLhPW6HuPEVDtZNpglEj3UPCg9RCAyb4yORUs/6UIDOmavpx4ge+aOuYOUpJZeaONuoXrJGAbBBFA2OXbV1xvjTNiUWvQyQvBXnryENQR6tiEr6znwDn0mnR7e2LITFaT5XM2Et/R63tW2it/OYI4LilP3+f39zLiW+IL+3ixKI2j5DK4GYwFqIaxehlGzgEizjXKkuEi4+2++Us7KoAV8ijFaMSsFwIP0ntEFwuof7Bdy00gYjZ2edpOO/B2SIoxZBavxQo7RQZpSDmBeA+9HekBJL+OGE0qBP2L+4b/W+msKa+qUy61VVx6tTgkqqG76CwbTDtt2qr20D/cy9eWOsUYucuqCECiM2XxP+NzHbIyjgivpJw=
+#          secure: "tBd92kmXZsj7+N36Eo7MRj4iBcsWlXjffLZe08mDcuKSUW4yq9Qbtafwfxi+g/cGWHRZUvlSkfwNUJXrFbE9uvlj61NUKSMhMyJnSMQtv9vx8fJ3y6xG7+qSy4r/nt0Tj0lj6ReOWaKvEmBE84nRA7RPL7mqlyKiF1jp9gQVUUSr/H3zRwlqd0GLAStq5wNIh8CE3WGH42WtDmwewEDtGL94lddR3F32r04rDJ7e+zRmbHhC+bABIQbYq99YJRfA/lThICCGCSn+oILO+T/X2DUYCAuPwTEFkg3GlwEYCiI4218O6Up3g5nDLhPW6HuPEVDtZNpglEj3UPCg9RCAyb4yORUs/6UIDOmavpx4ge+aOuYOUpJZeaONuoXrJGAbBBFA2OXbV1xvjTNiUWvQyQvBXnryENQR6tiEr6znwDn0mnR7e2LITFaT5XM2Et/R63tW2it/OYI4LilP3+f39zLiW+IL+3ixKI2j5DK4GYwFqIaxehlGzgEizjXKkuEi4+2++Us7KoAV8ijFaMSsFwIP0ntEFwuof7Bdy00gYjZ2edpOO/B2SIoxZBavxQo7RQZpSDmBeA+9HekBJL+OGE0qBP2L+4b/W+msKa+qUy61VVx6tTgkqqG76CwbTDtt2qr20D/cy9eWOsUYucuqCECiM2XxP+NzHbIyjgivpJw="
+          secure: "oXvCKlob6EGN6kLwEDgr38io6JFR2yKwuE0o5NhUOl2jAdkR/FJe/ck5C5p0+vyM9NpGiI9K27RE1J7946IWBw02XddQ4vizBn7FisY4bE/0iYfdkowsTiV6RxX4ZKThoeJBN1Hhz4i9vct8RnmLgsadXiFCIjhsfeXJ6UdOBupAgZk0ROEJApk5D3TK4EVk0F4/0CWzHHZNSAgEqnJzZNm15aNiExc+/Nq0Cysg1YgCkF3lfrNfFfk5o6rbIpjUXMX2rzYa64AQ3BOSfmn7EcKzZ+AZBFFumbDk12vYcQsWxrykEh2tARz5hCgn3PtspgaxfLFlQhcksD7VsDI9vZzSe5WF3mv/ixnKwGoPJHFUXO/N7U4dTLwe9fTH7rbBOLlHasRIvDPbD/rfMTmOVEkAo7g5rDwgh3Mpv0P9xorMJzViHRp0h2KDJg4gmCxkQplw/9OB81IBaokfyHpRYdOFTjREUvlb8sVm/xl6bI0W6fiUMlgmpzaqmGQPcOlazwJ6UPrxv6XK9+vyc6/a96fbFzLv1AUb2bXt5ZEgoQkktxAYMgwKc8dcFYdofoSdt2jrtM4L9fXNe/ziNZE8Ic4b+nYfZv3RPbafT/SeH6LYd79SSmHnOFmt7VxoYLGRWwKqkv635iCNCu+Txk8WryKZhFGevoLxM0+1QrH2ZSk="
     - name: "Python 3.7 on bionic"
       os: linux
       dist: bionic
@@ -44,12 +46,14 @@ jobs:
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
+      sudo: false
       language: shell       # 'language: python' is an error on Travis CI macOS
     - name: "Python 3.8.0 on Windows 10"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
         - choco install python --version 3.8.0
+        - choco install graphviz
         - python -m pip install --upgrade pip
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 addons:
