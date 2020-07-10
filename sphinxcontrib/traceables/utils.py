@@ -1,6 +1,5 @@
 import re
-import six
-from sphinx.util.texescape import tex_escape_map
+from sphinx.util.texescape import escape
 
 
 # =============================================================================
@@ -34,5 +33,5 @@ def is_valid_traceable_attribute_name(input):
 # Latex-related utilities.
 
 def latex_escape(text):
-    return six.text_type(text).translate(tex_escape_map)
+    return escape(text)
 
