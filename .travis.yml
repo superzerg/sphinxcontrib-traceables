@@ -10,9 +10,13 @@ addons:
     packages:
       - graphviz
 install:
-  - pip install tox
-  - pip install tox-travis
-script: tox
+  - pip install pytest
+  - pip install pytest-cov
+  - pip install coveralls
+script:
+  - pytest --cov=sphinxcontrib.traceables
+after_success:
+  - coveralls
 deploy:
   provider: pypi
   distributions: "sdist bdist_wheel"
