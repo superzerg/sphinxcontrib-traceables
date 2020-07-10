@@ -33,10 +33,7 @@ jobs:
       os: linux
       dist: bionic
       python: 3.5
-    - name: "Python 3.3 on bionic"
-      os: linux
-      dist: bionic
-      python: 3.3
+
     - name: "Python 3.0 on bionic"
       os: linux
       dist: bionic
@@ -53,6 +50,10 @@ jobs:
       os: linux
       dist: xenial
       python: 3.6
+    - name: "Python 3.3 on xenial"
+      os: linux
+      dist: xenial
+      python: 3.3
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
@@ -70,12 +71,15 @@ addons:
     packages:
     - graphviz
 before_install:
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
+#  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install graphviz; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then pip3 install virtualenv; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then virtualenv -p python3 venv; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./venv/bin/activate; fi
 install:
 - pip3 install --upgrade pip
 - pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
-- pip3 install --user nose
+- pip3 install nose
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
