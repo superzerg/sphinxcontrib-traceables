@@ -1,7 +1,4 @@
-
-import os
-from xml.etree import ElementTree
-from utils import with_app, pretty_print_xml
+from .utils import with_app
 
 
 # =============================================================================

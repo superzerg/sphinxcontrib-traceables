@@ -1,6 +1,5 @@
 
-from nose.tools import eq_, assert_raises
-from utils import with_app, pretty_print_xml
+from .utils import with_app
 
 
 # =============================================================================

@@ -1,6 +1,6 @@
 
 import os
-from sphinx_testing.util import with_app
+from sphinx_testing.util import with_app as testing_with_app
 from xml.etree import ElementTree
 from xml.dom.minidom import parseString
 
@@ -31,4 +31,4 @@ def with_app(*args, **kwargs):
     if "freshenv" not in kwargs:
         kwargs["freshenv"] = True
 
-    return with_app(*args, **kwargs)
+    return testing_with_app(*args, **kwargs)

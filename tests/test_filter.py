@@ -1,12 +1,6 @@
-
-import os
 import sys
-import ast
-from xml.etree import ElementTree
 from nose.tools import assert_raises
-from utils import with_app, pretty_print_xml
-from sphinxcontrib.traceables.filter import (FilterVisitor, FilterError,
-                                             ExpressionMatcher)
+from sphinxcontrib_traceables.filter import FilterError, ExpressionMatcher
 from sphinxcontrib.traceables.infrastructure import Traceable, TraceablesFilter
 
 
