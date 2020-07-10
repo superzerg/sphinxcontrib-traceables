@@ -27,13 +27,13 @@ Thanks to rexut for doing part of the job.
     :scale: 100%
     :target: https://sphinxcontrib-traceables.readthedocs.org/en/latest/?badge=latest
 
-.. |build-status| image:: https://travis-ci.org/t4ngo/sphinxcontrib-traceables.svg
+.. |build-status| image:: https://api.travis-ci.org/superzerg/sphinxcontrib-traceables.svg
     :alt: Build status
-    :target: https://travis-ci.org/t4ngo/sphinxcontrib-traceables
+    :target: https://travis-ci.org/superzerg/sphinxcontrib-traceables
 
-.. |coverage-status| image:: https://coveralls.io/repos/t4ngo/sphinxcontrib-traceables/badge.svg?branch=master&service=github
-    :alt: Test coverage status
-    :target: https://coveralls.io/github/t4ngo/sphinxcontrib-traceables?branch=master
+.. |coverage-status| image:: https://coveralls.io/repos/github/superzerg/sphinxcontrib-traceables/badge.svg
+   :target: https://coveralls.io/github/superzerg/sphinxcontrib-traceables
+   :alt: Test coverage status
 
 .. |pypi-version| image:: https://img.shields.io/pypi/v/sphinxcontrib-traceables.svg
     :alt: Latest version at PyPI

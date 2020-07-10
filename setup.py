@@ -22,7 +22,7 @@ def get_version():
 
 
 setup(
-      name="sphinxcontrib-traceables",
+      name="sphinxcontrib-traceables0.2",
       version=get_version(),
       description="Sphinx extension that adds traceability within "
                   "documentation",
