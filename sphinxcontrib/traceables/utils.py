@@ -35,3 +35,4 @@ def is_valid_traceable_attribute_name(input):
 
 def latex_escape(text):
     return six.text_type(text).translate(tex_escape_map)
+

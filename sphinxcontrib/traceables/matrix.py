@@ -4,11 +4,8 @@ The ``matrix`` module: Matrices of traceables
 
 """
 
-import types
-import six
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
-from sphinx.util.texescape import tex_escape_map
 
 from .infrastructure import FormatProcessorBase, TraceablesFilter
 from .utils import passthrough, latex_escape

@@ -3,8 +3,6 @@ The ``filter`` module: Filter expression processing
 ===============================================================================
 
 """
-
-import os
 import re
 import ast
 
@@ -129,7 +127,7 @@ class FilterVisitor(ast.NodeVisitor):
         else:
             # No other operators are  present in Python, but just in case.
             raise FilterError(node, "Invalid operator of type {0}"
-                                    .format(operator.__class__.__name__))
+                                    .format(node.ops[0].__class__.__name__))
 
     def generic_visit(self, node):
         raise FilterError(node, "Invalid input of type {0}"

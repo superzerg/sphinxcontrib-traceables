@@ -6,23 +6,15 @@ The ``infrastructure`` module: Infrastructure for processing traceables
 
 import os
 import glob
-import collections
 from docutils import nodes
 from docutils.utils import get_source_line
-from docutils.parsers.rst import Directive, directives
-from sphinx import __version__ as SphinxVersion
-from sphinx import addnodes
-from sphinx.locale import _
-from sphinx.roles import XRefRole
-from sphinx.environment import NoUri
-from sphinx.errors import ExtensionError
+from docutils.parsers.rst import directives
+from sphinx.errors import ExtensionError, NoUri
 from sphinx.util.nodes import make_refnode
 from sphinx.util.osutil import copyfile
 
-from .filter import ExpressionMatcher, FilterError, FilterFail
+from .filter import ExpressionMatcher, FilterFail
 
-from distutils.version import LooseVersion
-SPHINX_LT_16 = LooseVersion(SphinxVersion) < LooseVersion('1.6')
 
 
 # =============================================================================
@@ -31,17 +23,11 @@ SPHINX_LT_16 = LooseVersion(SphinxVersion) < LooseVersion('1.6')
 class InfrastructureLogging(object):
 
     def document_warning(self, env, msg, lineno=None):
-        if SPHINX_LT_16:
-            env.warn(env.docname, msg, lineno)
-        else:
             from sphinx.util import logging
             logger = logging.getLogger(__name__)
             logger.warning(msg, location=(env.docname, lineno))
 
     def node_warning(self, env, msg, node):
-        if SPHINX_LT_16:
-            env.warn_node(msg, node)
-        else:
             from sphinx.util import logging
             logger = logging.getLogger(__name__)
             logger.warning(msg, location=get_source_line(node))
@@ -333,7 +319,7 @@ def add_static_files(app):
     stylesheet_glob = os.path.join(static_directory, "*.css")
     for stylesheet_path in glob.glob(stylesheet_glob):
         basename = os.path.basename(stylesheet_path)
-        app.add_stylesheet(basename)
+        app.add_css_file(basename)
 
 
 def copy_static_files(app, exception):

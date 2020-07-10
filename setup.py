@@ -21,11 +21,6 @@ def get_version():
     return version_string
 
 
-def get_requirements():
-    with open('requirements.txt') as f:
-        return f.readlines()
-
-
 setup(
       name="sphinxcontrib-traceables",
       version=get_version(),
@@ -38,9 +33,15 @@ setup(
       long_description=read("README.rst"),
       packages=find_packages(),
       include_package_data=True,
-      install_requires=get_requirements(),
+      install_requires=[
+          'Sphinx>=3',
+          'graphviz>=0.4.6'
+      ],
       platforms="any",
-
+      tests_require=[
+          'nose',
+          ''
+      ],
       classifiers=[
                    "Development Status :: 3 - Alpha",
                    "Environment :: Other Environment",

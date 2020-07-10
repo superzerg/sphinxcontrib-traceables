@@ -3,18 +3,11 @@ The ``traceables`` module: Core traceables functionality
 ===============================================================================
 
 """
-
-
-import collections
-import textwrap
 from docutils import nodes
-from docutils.parsers.rst import Directive, directives
+from docutils.parsers.rst import Directive
 import sphinx
 from sphinx import addnodes
-from sphinx.locale import _
 from sphinx.roles import XRefRole
-from sphinx.environment import NoUri
-from sphinx.util.nodes import make_refnode
 
 from .infrastructure import InfrastructureLogging, ProcessorBase, Traceable, TraceablesStorage
 from .display import traceable_display
