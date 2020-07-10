@@ -1,6 +1,4 @@
 language: python
-# workaround for 3.8 not available in default configuration
-# travis-ci/travis-ci#9815#issuecomment-401756442
 dist: bionic
 sudo: false
 python:
@@ -10,6 +8,7 @@ addons:
     packages:
       - graphviz
 install:
+  - pip install https://github.com/superzerg/sphinxcontrib-traceables.git
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
