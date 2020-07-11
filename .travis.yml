@@ -50,19 +50,18 @@ addons:
     packages:
     - graphviz
 before_install:
-#  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install graphviz; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then pip3 install virtualenv; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then virtualenv -p python3 venv; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./venv/bin/activate; fi
 install:
 - pip3 install --upgrade pip
-- pip3 install sphinx==1.8.5
 - pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
 - pip3 install nose
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
+- pip3 install sphinx==1.8.5
 script:
 - pytest --cov=sphinxcontrib.traceables
 after_success:
