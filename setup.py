@@ -34,7 +34,7 @@ setup(
       packages=find_packages(),
       include_package_data=True,
       install_requires=[
-          'Sphinx>=3',
+          'Sphinx',
           'graphviz>=0.4.6'
       ],
       platforms="any",

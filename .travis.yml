@@ -33,10 +33,6 @@ jobs:
       os: linux
       dist: xenial
       python: 3.5
-    - name: "Python 3.4 on xenial"
-      os: linux
-      dist: xenial
-      python: 3.4
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
