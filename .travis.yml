@@ -21,39 +21,26 @@ jobs:
 # token for test.pypi
           secure: "oXvCKlob6EGN6kLwEDgr38io6JFR2yKwuE0o5NhUOl2jAdkR/FJe/ck5C5p0+vyM9NpGiI9K27RE1J7946IWBw02XddQ4vizBn7FisY4bE/0iYfdkowsTiV6RxX4ZKThoeJBN1Hhz4i9vct8RnmLgsadXiFCIjhsfeXJ6UdOBupAgZk0ROEJApk5D3TK4EVk0F4/0CWzHHZNSAgEqnJzZNm15aNiExc+/Nq0Cysg1YgCkF3lfrNfFfk5o6rbIpjUXMX2rzYa64AQ3BOSfmn7EcKzZ+AZBFFumbDk12vYcQsWxrykEh2tARz5hCgn3PtspgaxfLFlQhcksD7VsDI9vZzSe5WF3mv/ixnKwGoPJHFUXO/N7U4dTLwe9fTH7rbBOLlHasRIvDPbD/rfMTmOVEkAo7g5rDwgh3Mpv0P9xorMJzViHRp0h2KDJg4gmCxkQplw/9OB81IBaokfyHpRYdOFTjREUvlb8sVm/xl6bI0W6fiUMlgmpzaqmGQPcOlazwJ6UPrxv6XK9+vyc6/a96fbFzLv1AUb2bXt5ZEgoQkktxAYMgwKc8dcFYdofoSdt2jrtM4L9fXNe/ziNZE8Ic4b+nYfZv3RPbafT/SeH6LYd79SSmHnOFmt7VxoYLGRWwKqkv635iCNCu+Txk8WryKZhFGevoLxM0+1QrH2ZSk="
         server: https://test.pypi.org/legacy/ # Remove for pypi deployment to official PyPi repo
-    - name: "Python 3.7 on bionic"
+    - name: "Python 3.9 on bionic"
       os: linux
       dist: bionic
-      python: 3.7
-    - name: "Python 3.6 on bionic"
-      os: linux
-      dist: bionic
-      python: 3.6
+      python: 3.9
     - name: "Python 3.5 on bionic"
       os: linux
       dist: bionic
       python: 3.5
-
-    - name: "Python 3.0 on bionic"
-      os: linux
-      dist: bionic
-      python: 3.0
     - name: "Python 3.8 on xenial"
       os: linux
       dist: xenial
       python: 3.8
-    - name: "Python 3.7 on xenial"
+    - name: "Python 3.5 on xenial"
       os: linux
       dist: xenial
-      python: 3.7
-    - name: "Python 3.6 on xenial"
+      python: 3.5
+    - name: "Python 3.4 on xenial"
       os: linux
       dist: xenial
-      python: 3.6
-    - name: "Python 3.3 on xenial"
-      os: linux
-      dist: xenial
-      python: 3.3
+      python: 3.4
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
