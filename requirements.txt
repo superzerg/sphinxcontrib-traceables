@@ -1,2 +1,2 @@
-Sphinx>=3
+Sphinx
 graphviz>=0.4.6
