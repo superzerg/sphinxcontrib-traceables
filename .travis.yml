@@ -61,7 +61,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./venv/bin/activate; fi
 install:
 - pip3 install --upgrade pip
-- pip3 install sphinx==2.4
+- pip3 install sphinx==1.8.5
 - pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
 - pip3 install nose
 - pip3 install pytest-cov
