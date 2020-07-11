@@ -65,7 +65,7 @@ install:
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
-- pip3 install sphinx==2.0.1
+- pip3 install sphinx==2.1.2
 script:
 - pytest --cov=sphinxcontrib.traceables
 after_success:
