@@ -165,7 +165,7 @@ directive described below.
 
    ``:relationships:`` -- name of traceables relationship *(optional)*
       Specify which relationships between traceables to show in the
-      generated graph. If not spefied, all relationships are shown.
+      generated graph. If not specifed, all relationships are shown.
 
    ``:caption:`` -- string *(optional)*
       Caption for the graph.
@@ -180,7 +180,7 @@ all traceables related to each other with the ``children`` relationship:
        :tags: SAGITTA, PEGASUS
 
 The directive shown above creates a traceability graph as shown below.
-The image below is a screenshot from the latex-PDF generated for the
+The image below is taken from the HTML generated for the
 `example constellation project <constellations-example_>`_
 which is part of this extension's source code.
 
@@ -191,7 +191,6 @@ which is part of this extension's source code.
 .. [#rest-directive-spec] The formal specification of reStructuredText
    directives is documented here:
    http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#directives
-
 
 .. _constellations-example:
    https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples/constellations
