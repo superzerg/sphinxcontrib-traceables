@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test_graph &mdash; Traceables example project: Requirements 0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/traceables-matrix.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Traceables example project: Requirements
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../strs.html">Stakeholders Requirements Specification</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../syrs.html">System Requirements Specification</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../verif.html">Verification Plan</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Traceables example project: Requirements</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>test_graph</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for test_graph</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Tests</span>
+
+<div class="viewcode-block" id="test_graph_xml"><a class="viewcode-back" href="../verif.html#test_graph.test_graph_xml">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_graph_xml</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify creation of graphviz nodes</span>
+
+<span class="sd">        .. traceable:: TEST-GRAPHXML</span>
+<span class="sd">            :title: Verify creation of graphviz nodes</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :parents: REQ-TRACEGRAPHS</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that a graph directive results in</span>
+<span class="sd">            a graphviz node in XML output. That effectively shows that the</span>
+<span class="sd">            directive is processed. This test case does not verify that</span>
+<span class="sd">            the output diagram is generated, because the XML builder doesn&#39;t</span>
+<span class="sd">            do further processing.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-GRAPHXML</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_all</span><span class="p">()</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="s2">&quot;index.xml&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Verify that 1 graphviz node is found.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//graphviz&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="test_graph_html"><a class="viewcode-back" href="../verif.html#test_graph.test_graph_html">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_graph_html</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify creation of traceable-graph image files</span>
+
+<span class="sd">        .. traceable:: TEST-GRAPHHTML</span>
+<span class="sd">            :title: Verify creation of traceable-graph image files</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :parents: REQ-TRACEGRAPHS</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that a graph directive results in</span>
+<span class="sd">            and output image file in HTML output. That effectively shows</span>
+<span class="sd">            that the directive is processed, and that graphviz is then</span>
+<span class="sd">            called and successfully generates an output image file. This</span>
+<span class="sd">            test case does not verify that the output image is correct.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-GRAPHHTML</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="c1"># Verify that output contains link to graph.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
+        <span class="n">index_html</span> <span class="o">=</span> <span class="n">index_html_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;_images/graphviz-[^&quot;]+.png&quot;&#39;</span><span class="p">,</span>
+                     <span class="n">index_html</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="test_graph_no_valid_start_tags"><a class="viewcode-back" href="../verif.html#test_graph.test_graph_no_valid_start_tags">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;graph_error&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_graph_no_valid_start_tags</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify error handling of traceable-graph without start tags</span>
+
+<span class="sd">        .. traceable:: TEST-GRAPHNOSTARTTAGS</span>
+<span class="sd">            :title: Verify error handling of traceable-graph without start tags</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :parents: REQ-TRACEGRAPHS, REQ-ERRORMESSAGES</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that a graph directive, for which no</span>
+<span class="sd">            valid start tags have been defined, generates a descriptive</span>
+<span class="sd">            error message.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-GRAPHNOSTARTTAGS</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="c1"># Verify that output contains link to graph.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
+        <span class="n">index_html</span> <span class="o">=</span> <span class="n">index_html_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Traceables: no valid tags for graph,&quot;</span>
+                     <span class="s2">&quot; so skipping graph&quot;</span><span class="p">,</span> <span class="n">index_html</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, t4ngo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

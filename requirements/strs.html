@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stakeholders Requirements Specification &mdash; Traceables example project: Requirements 0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/traceables-matrix.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="System Requirements Specification" href="syrs.html" />
+    <link rel="prev" title="Traceables example project: Requirements" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Traceables example project: Requirements
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Stakeholders Requirements Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#document-purpose">Document Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-scope">Document Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-structure">Document Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stakeholders-and-their-needs">Stakeholders and Their Needs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extension-users">Extension users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extension-developers">Extension developers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operational-concept">Operational Concept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#developer-works-on-the-extension">Developer works on the extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#developer-releases-the-extension">Developer releases the extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-installs-the-extension">User installs the extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-writes-documentation">User writes documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-generate-graphs-showing-relationships-between-traceables">User generate graphs showing relationships between traceables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-show-parents-and-children-of-a-traceable">Example: Show parents and children of a traceable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-hide-intermediate-traceables-while-maintaining-relationship-links">Example: Hide intermediate traceables while maintaining relationship links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stakeholder-requirements">Stakeholder Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-for-installation-and-running">Requirements for installation and running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-for-functionality-when-writing-docs-with-this-extension">Requirements for functionality when writing docs with this extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-for-developers-working-on-this-extension">Requirements for developers working on this extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="syrs.html">System Requirements Specification</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="verif.html">Verification Plan</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Traceables example project: Requirements</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Stakeholders Requirements Specification</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/strs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stakeholders-requirements-specification">
+<h1>Stakeholders Requirements Specification<a class="headerlink" href="#stakeholders-requirements-specification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="document-purpose">
+<h3>Document Purpose<a class="headerlink" href="#document-purpose" title="Permalink to this headline">¶</a></h3>
+<p>This Stakeholders Requirements Specification document identifies the parties
+interested in the <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a> extension, describes their needs,
+combines the diverse needs in an <abbr title="Operational Concept">OpsCon</abbr>, and derives stakeholder
+requirements.</p>
+<p>This document’s purpose is twofold: on the one hand, to ensure the
+extension meets its stakeholders’ expectations, and on the other hand, to
+demonstrate how this extension allows requirements management within
+Sphinx-based documentation.</p>
+</div>
+<div class="section" id="document-scope">
+<h3>Document Scope<a class="headerlink" href="#document-scope" title="Permalink to this headline">¶</a></h3>
+<p>This document describes the <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a> extension. It is limited
+to stakeholder-level aspects and therefore doesn’t cover technical details.</p>
+</div>
+<div class="section" id="document-structure">
+<h3>Document Structure<a class="headerlink" href="#document-structure" title="Permalink to this headline">¶</a></h3>
+<p>The following chapters describe the stakeholders and their needs, combine those
+needs into a single <abbr title="Operational Concept">OpsCon</abbr>, and derive stakeholder requirements.</p>
+</div>
+</div>
+<div class="section" id="stakeholders-and-their-needs">
+<h2>Stakeholders and Their Needs<a class="headerlink" href="#stakeholders-and-their-needs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extension-users">
+<h3>Extension users<a class="headerlink" href="#extension-users" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-0">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code><span> -- </span><span>Extension users</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a><span>, </span><a class="reference internal" href="#traceables-4" title="OPSCON-INSTALL"><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code></a><span>, </span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></dd>
+<dt class="field-even">category</dt>
+<dd class="field-even"><span> Stakeholder</span></dd>
+</dl>
+<p>This stakeholder represents users of the <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a>
+extension, i.e. people who write Sphinx-based documentation.</p>
+</div>
+<p>This extension adds traceability functionality to Sphinx. Its users can
+apply such traceability for various different purposes, such as for example:</p>
+<dl class="simple">
+<dt><em>Requirements management</em></dt><dd><p>Capturing requirements in documentation; tracing the relationships
+between various types of requirements; generating lists, tables, and
+diagrams of requirements, and filtering those based on flexible properties
+of the requirements; tracing requirements to test cases; etc.</p>
+</dd>
+<dt><em>Process descriptions</em></dt><dd><p>Describing processes as networks of linked items, i.e.
+“Process 1 ↦ Artifact A ↦ Process 2 ↦ Artifact B ↦ …”,
+and keeping the textual description there of in line with diagrams by
+automatically generating diagrams, tables, relationships, etc. from
+the textual description.</p>
+</dd>
+</dl>
+<p>The users’ needs are that this extension provides the functionality they want
+and is easy to use:</p>
+<ul class="simple">
+<li><p>Desired functionality</p>
+<ul>
+<li><p>Define traceable items and their attributes at arbitrary places within Sphinx documentation</p></li>
+<li><p>Define relationships between traceable items</p></li>
+<li><p>Generate lists of traceable items which are flexibly filtered</p></li>
+<li><p>Generate various output formats showing the relationship between traceable items, such as traceability matrices and graphs</p></li>
+</ul>
+</li>
+<li><p>Ease-of-use</p>
+<ul>
+<li><p>Easy installation</p></li>
+<li><p>Intuitive usage</p></li>
+<li><p>Informative error messages</p></li>
+</ul>
+</li>
+</ul>
+<p>These user needs are captured in the <abbr title="Operational Concept">OpsCon</abbr> and stakeholder requirements
+below.</p>
+<div class="figure align-default" id="id1">
+<div class="graphviz"><img src="_images/graphviz-86acc6dccdd5dc5694895eca03a9e85c9aba6c39.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="extension-developers">
+<h3>Extension developers<a class="headerlink" href="#extension-developers" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-1">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">STKH-DEVS</span></code><span> -- </span><span>Extension developers</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a><span>, </span><a class="reference internal" href="#traceables-3" title="OPSCON-RELEASE"><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code></a></span></dd>
+<dt class="field-even">category</dt>
+<dd class="field-even"><span> Stakeholder</span></dd>
+</dl>
+<p>This stakeholder represents developers of the <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a>
+extension, i.e. people who create, expand, and maintain it.</p>
+</div>
+<p>The developers’ needs are that this extension is designed well (easy to
+expand, easy to maintain, fun to work on, etc.), well documented (easy to
+understand), and well tested (easy to verify changes don’t break it).
+Those needs are captured in the <abbr title="Operational Concept">OpsCon</abbr> below.</p>
+<div class="figure align-default" id="id2">
+<div class="graphviz"><img src="_images/graphviz-0e453d1fc80396e3933ec3671b6ce6968d1771db.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="operational-concept">
+<h2>Operational Concept<a class="headerlink" href="#operational-concept" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="developer-works-on-the-extension">
+<h3>Developer works on the extension<a class="headerlink" href="#developer-works-on-the-extension" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-2">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code><span> -- </span><span>Developer works on the extension</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-16" title="STRQ-CONTINTEGR"><code class="docutils literal notranslate"><span class="pre">STRQ-CONTINTEGR</span></code></a><span>, </span><a class="reference internal" href="#traceables-14" title="STRQ-DEVDOCS"><code class="docutils literal notranslate"><span class="pre">STRQ-DEVDOCS</span></code></a><span>, </span><a class="reference internal" href="#traceables-15" title="STRQ-TESTS"><code class="docutils literal notranslate"><span class="pre">STRQ-TESTS</span></code></a></span></dd>
+<dt class="field-even">parents</dt>
+<dd class="field-even"><span><a class="reference internal" href="#traceables-1" title="STKH-DEVS"><code class="docutils literal notranslate"><span class="pre">STKH-DEVS</span></code></a></span></dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><span> OpsConScenario</span></dd>
+</dl>
+</div>
+<p>This scenario covers a developer who works on this extension, expanding its
+functionality, fixing bugs, writes documentation for it, etc.</p>
+<p><em>Further details for this scenario are yet to be written.</em></p>
+</div>
+<div class="section" id="developer-releases-the-extension">
+<h3>Developer releases the extension<a class="headerlink" href="#developer-releases-the-extension" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-3">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code><span> -- </span><span>Developer releases the extension</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-16" title="STRQ-CONTINTEGR"><code class="docutils literal notranslate"><span class="pre">STRQ-CONTINTEGR</span></code></a><span>, </span><a class="reference internal" href="#traceables-14" title="STRQ-DEVDOCS"><code class="docutils literal notranslate"><span class="pre">STRQ-DEVDOCS</span></code></a><span>, </span><a class="reference internal" href="#traceables-15" title="STRQ-TESTS"><code class="docutils literal notranslate"><span class="pre">STRQ-TESTS</span></code></a></span></dd>
+<dt class="field-even">parents</dt>
+<dd class="field-even"><span><a class="reference internal" href="#traceables-1" title="STKH-DEVS"><code class="docutils literal notranslate"><span class="pre">STKH-DEVS</span></code></a></span></dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><span> OpsConScenario</span></dd>
+</dl>
+</div>
+<p>This scenario covers a developer who creates a formal release of this
+extension and publishes that so that users can install the new release
+(see <a class="reference internal" href="#traceables-4" title="OPSCON-INSTALL"><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code></a>).</p>
+<p><em>Further details for this scenario are yet to be written.</em></p>
+</div>
+<div class="section" id="user-installs-the-extension">
+<h3>User installs the extension<a class="headerlink" href="#user-installs-the-extension" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-4">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code><span> -- </span><span>User installs the extension</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-8" title="STRQ-PIPINSTALL"><code class="docutils literal notranslate"><span class="pre">STRQ-PIPINSTALL</span></code></a><span>, </span><a class="reference internal" href="#traceables-7" title="STRQ-USERDOCS"><code class="docutils literal notranslate"><span class="pre">STRQ-USERDOCS</span></code></a></span></dd>
+<dt class="field-even">parents</dt>
+<dd class="field-even"><span><a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a></span></dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><span> OpsConScenario</span></dd>
+</dl>
+</div>
+<p>This scenario covers a user who installs this extension. It consists of
+the following activities:</p>
+<ol class="arabic simple">
+<li><p>A <a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a> reads <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a> user
+documentation, specifically the installation instructions.</p></li>
+<li><p>The <a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a> uses a standard method to install this extension;
+standard methods included here:</p>
+<ul class="simple">
+<li><p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">pip</span></code> tool, i.e.
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinxcontrib-traceables</span></code></p></li>
+</ul>
+</li>
+</ol>
+<div class="figure align-default" id="id3">
+<div class="graphviz"><img src="_images/graphviz-216428ec15ff15691bba59b54732e2997259faad.png" alt="Stakeholders involved with this scenario and requirements
+derived from it" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Stakeholders involved with this scenario and requirements
+derived from it</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="user-writes-documentation">
+<h3>User writes documentation<a class="headerlink" href="#user-writes-documentation" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-5">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code><span> -- </span><span>User writes documentation with traceables</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a><span>, </span><a class="reference internal" href="#traceables-9" title="STRQ-CLEARERRMSG"><code class="docutils literal notranslate"><span class="pre">STRQ-CLEARERRMSG</span></code></a><span>, </span><a class="reference internal" href="#traceables-13" title="STRQ-CONFIGRELTYPES"><code class="docutils literal notranslate"><span class="pre">STRQ-CONFIGRELTYPES</span></code></a><span>, </span><a class="reference internal" href="#traceables-10" title="STRQ-DEFINETRCBLS"><code class="docutils literal notranslate"><span class="pre">STRQ-DEFINETRCBLS</span></code></a><span>, </span><a class="reference internal" href="#traceables-11" title="STRQ-SHOWTRACES"><code class="docutils literal notranslate"><span class="pre">STRQ-SHOWTRACES</span></code></a><span>, </span><a class="reference internal" href="#traceables-12" title="STRQ-SPECGRAPHS"><code class="docutils literal notranslate"><span class="pre">STRQ-SPECGRAPHS</span></code></a><span>, </span><a class="reference internal" href="#traceables-7" title="STRQ-USERDOCS"><code class="docutils literal notranslate"><span class="pre">STRQ-USERDOCS</span></code></a></span></dd>
+<dt class="field-even">parents</dt>
+<dd class="field-even"><span><a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a></span></dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><span> OpsConScenario</span></dd>
+</dl>
+</div>
+<p>This scenario covers a user who writes Sphinx-based documentation that
+contains traceables and other functionality provided by this extension.
+It consists of the following activities:</p>
+<ol class="arabic simple">
+<li><p>A <a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a> reads <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a> user
+documentation to learn how to use the extension’s functionality.</p></li>
+<li><p>The <a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a> writes input for Sphinx.
+The <a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables">sphinxcontrib-traceables</a> extension provides the following
+functionality:</p>
+<ul class="simple">
+<li><p>Define traceable items and their attributes at arbitrary places
+within Sphinx documentation</p></li>
+<li><p>Define relationships between traceable items</p></li>
+<li><p>Generate lists of traceable items which are flexibly filtered</p></li>
+<li><p>Generate various output formats showing the relationship between
+traceable items, such as traceability matrices and graphs;
+see <a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a> for a scenario describing generation
+of graphs in more detail</p></li>
+</ul>
+</li>
+<li><p>The <a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a> runs Sphinx and generates output.</p></li>
+<li><p>If the input contains errors related to traceables, then this extension
+gives clear error messages helping the user to quickly understand and
+fix the error.</p></li>
+</ol>
+</div>
+<div class="section" id="user-generate-graphs-showing-relationships-between-traceables">
+<h3>User generate graphs showing relationships between traceables<a class="headerlink" href="#user-generate-graphs-showing-relationships-between-traceables" title="Permalink to this headline">¶</a></h3>
+<div class="traceable admonition" id="traceables-6">
+<p class="admonition-title"><span><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code><span> -- </span><span>User generate graphs showing relationships between traceables</span></span></p>
+<dl class="field-list">
+<dt class="field-odd">children</dt>
+<dd class="field-odd"><span><a class="reference internal" href="#traceables-12" title="STRQ-SPECGRAPHS"><code class="docutils literal notranslate"><span class="pre">STRQ-SPECGRAPHS</span></code></a></span></dd>
+<dt class="field-even">parents</dt>
+<dd class="field-even"><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a><span>, </span><a class="reference internal" href="#traceables-0" title="STKH-USERS"><code class="docutils literal notranslate"><span class="pre">STKH-USERS</span></code></a></span></dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><span> OpsConScenario</span></dd>
+</dl>
+</div>
+<p>This scenario covers a user wants the output documentation to include
+generated graphs showing the relationships between traceables.</p>
+<div class="section" id="example-show-parents-and-children-of-a-traceable">
+<h4>Example: Show parents and children of a traceable<a class="headerlink" href="#example-show-parents-and-children-of-a-traceable" title="Permalink to this headline">¶</a></h4>
+<p>In this example the goal is to show the parents and the children of a given
+traceable. The desired output graph shows the traceable’s parent hierarchy
+to one side, and its children hierarchy to the other side.</p>
+<p>The maximum length/depth to which the hierarchies are shown should be
+configurable. If not specified, the complete hierarchies should be shown.</p>
+<p>This example includes both parent and child relationships in the output
+diagram. However, The relationship types are not “mixed”, e.g. it does not
+show all children of a traceable on the “parent side” of the diagram
+and vice versa. This leads to a nontrivial specification of which traceables
+to include.</p>
+</div>
+<div class="section" id="example-hide-intermediate-traceables-while-maintaining-relationship-links">
+<h4>Example: Hide intermediate traceables while maintaining relationship links<a class="headerlink" href="#example-hide-intermediate-traceables-while-maintaining-relationship-links" title="Permalink to this headline">¶</a></h4>
+<p>This example revolves around a usage scenario where processes and their
+inputs and outputs are each represented by a traceable. A process is linked to
+another process by means of one or more of its outputs forming an input for
+the other process or vice versa.</p>
+<p>In this example the goal is to show the relationships between processes,
+but without including the inputs/outputs in the diagram. In other words,
+a diagram should be generated showing the linkages between processes without
+showing the intermediary input/output traceables. Such a diagram could be
+useful in simplifying the display of linkages between processes without
+overloading the reader with all the input/output details.</p>
+</div>
+</div>
+</div>
+<div class="section" id="stakeholder-requirements">
+<h2>Stakeholder Requirements<a class="headerlink" href="#stakeholder-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements-for-installation-and-running">
+<h3>Requirements for installation and running<a class="headerlink" href="#requirements-for-installation-and-running" title="Permalink to this headline">¶</a></h3>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-USERDOCS</span></code><span> -- </span><span>High-quality documentation for users</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> children</span></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-6" title="REQ-INSTALLINSTR"><code class="docutils literal notranslate"><span class="pre">REQ-INSTALLINSTR</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-7" title="REQ-USAGEINSTR"><code class="docutils literal notranslate"><span class="pre">REQ-USAGEINSTR</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-4" title="OPSCON-INSTALL"><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>Users require documentation to help them use this extension. That
+documentation must cover at least the following topics:</p>
+<ul class="simple">
+<li><p>How to install the extension (see <a class="reference internal" href="#traceables-4" title="OPSCON-INSTALL"><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code></a>)</p></li>
+<li><p>How to use traceables in their docs (see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>)</p></li>
+<li><p>How to fix errors if the user incorrectly uses traceables
+(see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>)</p></li>
+</ul>
+<div class="figure align-default" id="id4">
+<div class="graphviz"><img src="_images/graphviz-e7734cefee06278d71e3dea69fe36c418c58bfec.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-PIPINSTALL</span></code><span> -- </span><span>Easy installation using pip</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-4" title="OPSCON-INSTALL"><code class="docutils literal notranslate"><span class="pre">OPSCON-INSTALL</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>A very common way to install Python packages is to use the <code class="docutils literal notranslate"><span class="pre">pip</span></code> tool.
+It must therefore be possible for users to easily install this extension
+using the <code class="docutils literal notranslate"><span class="pre">pip</span></code> tool.</p>
+<div class="figure align-default" id="id5">
+<div class="graphviz"><img src="_images/graphviz-7ed4d1d294e3ca0234a529ef66d5e57fe8711b35.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-CLEARERRMSG</span></code><span> -- </span><span>Clear error messages</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> children</span></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-5" title="REQ-ERRORMESSAGES"><code class="docutils literal notranslate"><span class="pre">REQ-ERRORMESSAGES</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>If a user makes an error in his usage of this extension, then this
+extension should give a clear error message that helps the user quickly
+find and fix the error (see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>).</p>
+<p>Sphinx automatically reports on general syntax errors in its input files,
+usually written in reStructuredText format. This extension therefore does
+not need to handle such errors.</p>
+<p>The error messages to be generated by this extension are mainly related
+to invalid parameters given to its directives and invalid configuration
+settings.</p>
+<div class="figure align-default" id="id6">
+<div class="graphviz"><img src="_images/graphviz-d5033c8afcf47b1b3c4802415ca29bf9efc098f5.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="requirements-for-functionality-when-writing-docs-with-this-extension">
+<h3>Requirements for functionality when writing docs with this extension<a class="headerlink" href="#requirements-for-functionality-when-writing-docs-with-this-extension" title="Permalink to this headline">¶</a></h3>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-DEFINETRCBLS</span></code><span> -- </span><span>Definition of traceables</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> children</span></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-0" title="REQ-TRACEDIRECTIVE"><code class="docutils literal notranslate"><span class="pre">REQ-TRACEDIRECTIVE</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>A user must be able to define traceables at arbitrary locations within
+Sphinx source files using standard reStructuredText constructs
+(see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>).</p>
+<p>The definition of a traceable must:</p>
+<ul class="simple">
+<li><p>Give a unique tag to the traceable, so that it can be referenced
+throughout the rest of the documentation set</p></li>
+<li><p>Optionally give a title to the traceable</p></li>
+<li><p>Optionally define the traceable’s relationships with other traceables</p>
+<ul>
+<li><p>A traceable can have zero or more relationships with other traceables</p></li>
+<li><p>Each pair of related traceables can be related by one or more
+relationship types</p></li>
+</ul>
+</li>
+<li><p>Optionally arbitrary additional attributes can be defined for the
+traceable</p>
+<ul>
+<li><p>Examples of additional attributes are: the category, version,
+color, or foo-value of the traceable</p></li>
+<li><p>Such attributes can be used to group, filter, arrange, etc.
+traceables</p></li>
+</ul>
+</li>
+</ul>
+<div class="figure align-default" id="id7">
+<div class="graphviz"><img src="_images/graphviz-00ec5ce15465d92a59f146679672f58d0b7c9e86.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-SHOWTRACES</span></code><span> -- </span><span>Generate overviews of traceables, their attributes, and their
+relationships</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> children</span></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-3" title="REQ-TRACEGRAPHS"><code class="docutils literal notranslate"><span class="pre">REQ-TRACEGRAPHS</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-1" title="REQ-TRACELISTS"><code class="docutils literal notranslate"><span class="pre">REQ-TRACELISTS</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-2" title="REQ-TRACEMATRICES"><code class="docutils literal notranslate"><span class="pre">REQ-TRACEMATRICES</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>A user must be able to display traceables, their attributes, and their
+relationships through out the documentation output.
+(see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>).</p>
+<p>The following types of output must be supported:</p>
+<ul class="simple">
+<li><p>Displays of single traceables and their attributes</p></li>
+<li><p>Lists of traceables and their attributes</p></li>
+<li><p>Tables and nested lists showing related traceables</p></li>
+<li><p>Graphs showing the relationships between traceables</p></li>
+</ul>
+<div class="figure align-default" id="id8">
+<div class="graphviz"><img src="_images/graphviz-1bb81216600cbf3090fee7164d4a6efc5193bc28.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-SPECGRAPHS</span></code><span> -- </span><span>Flexibly specify which traceables to include in graphs</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> children</span></td>
+<td><span><a class="reference internal" href="syrs.html#traceables-3" title="REQ-TRACEGRAPHS"><code class="docutils literal notranslate"><span class="pre">REQ-TRACEGRAPHS</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>A user must be able to specify in a flexible and powerful way which
+traceables to be included in graph output
+(see <a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a>).</p>
+<p>The specification must support at least the usage examples given in the
+<a class="reference internal" href="#traceables-6" title="OPSCON-GRAPHS"><code class="docutils literal notranslate"><span class="pre">OPSCON-GRAPHS</span></code></a> scenario.</p>
+<div class="figure align-default" id="id9">
+<div class="graphviz"><img src="_images/graphviz-07f90dbd7e95f3c4c28889e37622927922b15d29.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-CONFIGRELTYPES</span></code><span> -- </span><span>Configurable relationship types between traceables</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>It must be possible to configure the types of relationships that are
+valid for a documentation set (see <a class="reference internal" href="#traceables-5" title="OPSCON-USAGE"><code class="docutils literal notranslate"><span class="pre">OPSCON-USAGE</span></code></a>).</p>
+<p>The valid relationship types can be configured via Sphinx’s standard
+configuration method, namely in the <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">build configuration file</a>.</p>
+<div class="figure align-default" id="id10">
+<div class="graphviz"><img src="_images/graphviz-e9f21c732f9dcfba9024654fc1675da280112456.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="requirements-for-developers-working-on-this-extension">
+<h3>Requirements for developers working on this extension<a class="headerlink" href="#requirements-for-developers-working-on-this-extension" title="Permalink to this headline">¶</a></h3>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-DEVDOCS</span></code><span> -- </span><span>High-quality documentation for developers</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="#traceables-3" title="OPSCON-RELEASE"><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<p>Developers require documentation to help them understand and improve
+this extension. That documentation must cover at least the following
+topics:</p>
+<ul class="simple">
+<li><p>How this extension is internally structured, so that its workings
+can easily be understood and so that modifications/improvements will be
+implemented in-line with its design philosophy
+(see <a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a>)</p></li>
+<li><p>How to submit modifications/improvements/bug fixes for review and,
+if accepted, inclusion in the central repository
+(see <a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a>)</p></li>
+<li><p>How to create and publish a formal release of this extension
+(see <a class="reference internal" href="#traceables-3" title="OPSCON-RELEASE"><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code></a>)</p></li>
+</ul>
+<div class="figure align-default" id="id11">
+<div class="graphviz"><img src="_images/graphviz-4ab468fb0fa8d156c283cdf5fabfff8b645d97cb.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-TESTS</span></code><span> -- </span><span>High-quality tests of this extension's functionality</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="#traceables-3" title="OPSCON-RELEASE"><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-default" id="id12">
+<div class="graphviz"><img src="_images/graphviz-84bd7e974e324e92ab136d70812c67d338d96926.png" alt="Traceable graph" class="graphviz" /></div>
+<p class="caption"><span class="caption-text">Traceable graph</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><span><span><code class="docutils literal notranslate"><span class="pre">STRQ-CONTINTEGR</span></code><span> -- </span><span>Continuous integration setup for this extension</span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><span> parents</span></td>
+<td><span><a class="reference internal" href="#traceables-2" title="OPSCON-DEV"><code class="docutils literal notranslate"><span class="pre">OPSCON-DEV</span></code></a></span></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><span><a class="reference internal" href="#traceables-3" title="OPSCON-RELEASE"><code class="docutils literal notranslate"><span class="pre">OPSCON-RELEASE</span></code></a></span></td>
+</tr>
+<tr class="row-even"><td><span> category</span></td>
+<td><span> StakeholderReq</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="syrs.html" class="btn btn-neutral float-right" title="System Requirements Specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Traceables example project: Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, t4ngo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+Filtered list
+==============================================================================
+
+.. traceable-list::
+    :format: bullets
+    :filter: color == "red"
+    :attributes: version

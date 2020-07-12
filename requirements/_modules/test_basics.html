@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test_basics &mdash; Traceables example project: Requirements 0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/traceables-matrix.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Traceables example project: Requirements
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../strs.html">Stakeholders Requirements Specification</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../syrs.html">System Requirements Specification</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../verif.html">Verification Plan</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Traceables example project: Requirements</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>test_basics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for test_basics</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+<span class="kn">from</span> <span class="nn">html.parser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
+
+
+<div class="viewcode-block" id="test_xml_basics"><a class="viewcode-back" href="../verif.html#test_basics.test_xml_basics">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;basics&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore: no traceable with tag&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_xml_basics</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">warning</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify definition of and linking between traceables</span>
+
+<span class="sd">        .. traceable:: TEST-TRACEDEF</span>
+<span class="sd">            :title: Verify definition of and linking between traceables</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :parents: REQ-TRACEDIRECTIVE, REQ-ERRORMESSAGES</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that traceable directives result in</span>
+<span class="sd">            the expected output using the XML builder. It also checks that</span>
+<span class="sd">            links between traceables are output as expected, including that</span>
+<span class="sd">            a helpful error message is generated when the input references</span>
+<span class="sd">            a nonexistent traceable.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-TRACEDEF</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_all</span><span class="p">()</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="s2">&quot;index.xml&quot;</span><span class="p">))</span>
+<span class="c1">#    print pretty_print_xml(tree.getroot())</span>
+
+    <span class="c1"># Verify that 2 traceables are found.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//target&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//index&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//admonition&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//admonition&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+
+    <span class="c1"># Verify that children-parents relationship are made.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//field_list&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="n">parents_fields</span><span class="p">,</span> <span class="n">children_fields</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//field_list&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">parents_fields</span><span class="p">:</span>
+        <span class="n">field_name</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./field_name&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">field_name</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;children&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Parent&#39;s children field not found!&quot;</span>
+    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">children_fields</span><span class="p">:</span>
+        <span class="n">field_name</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./field_name&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">field_name</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;parents&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Child&#39;s parents field not found!&quot;</span>
+
+    <span class="c1"># Verify that a warning is emitted for unknown traceable tag.</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">warning</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+        <span class="s2">&quot;WARNING: Traceables: no traceable with tag&quot;</span>
+        <span class="s2">&quot; &#39;NONEXISTENT&#39; found!&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="test_html_builder"><a class="viewcode-back" href="../verif.html#test_basics.test_html_builder">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;basics&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_html_builder</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify that html builder runs without errors</span>
+
+<span class="sd">        .. traceable:: TEST-HTMLBUILD</span>
+<span class="sd">            :title: Verify that html builder runs without errors</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that the html builder can be run</span>
+<span class="sd">            for basic usage of this extension. This test case also</span>
+<span class="sd">            checks some basic aspects of the output HTML.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-HTMLBUILD</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_all</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">index_file</span><span class="p">:</span>
+        <span class="n">index_html</span> <span class="o">=</span> <span class="n">index_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># Verify that all traceable&#39;s have an ID.</span>
+    <span class="n">verifier</span> <span class="o">=</span> <span class="n">HTMLTraceableIdVerifier</span><span class="p">()</span>
+    <span class="n">verifier</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">index_html</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HTMLTraceableIdVerifier"><a class="viewcode-back" href="../verif.html#test_basics.HTMLTraceableIdVerifier">[docs]</a><span class="k">class</span> <span class="nc">HTMLTraceableIdVerifier</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
+
+<div class="viewcode-block" id="HTMLTraceableIdVerifier.handle_starttag"><a class="viewcode-back" href="../verif.html#test_basics.HTMLTraceableIdVerifier.handle_starttag">[docs]</a>    <span class="k">def</span> <span class="nf">handle_starttag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">attribute_list</span><span class="p">):</span>
+        <span class="c1"># Process only the divs of traceable definitions.</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="o">!=</span> <span class="s2">&quot;div&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">attribute_list</span><span class="p">)</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">&quot;admonition&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">classes</span> <span class="ow">or</span> <span class="s2">&quot;traceable&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Verify that the traceable&#39;s div has an ID attribute.</span>
+        <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">,</span> <span class="p">(</span>
+               <span class="s1">&#39;Expected traceable directive div to have an &quot;id&quot; &#39;</span>
+               <span class="s1">&#39;attribute, but none found: </span><span class="si">{0!r}</span><span class="s1">&#39;</span>
+               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_starttag_text</span><span class="p">()))</span></div></div>
+
+<div class="viewcode-block" id="test_latex_builder"><a class="viewcode-back" href="../verif.html#test_basics.test_latex_builder">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">sphinx</span><span class="p">(</span><span class="n">buildername</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">,</span> <span class="n">testroot</span><span class="o">=</span><span class="s2">&quot;basics&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_latex_builder</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify that latex builder runs without errors</span>
+
+<span class="sd">        .. traceable:: TEST-LATEXBUILD</span>
+<span class="sd">            :title: Verify that latex builder runs without errors</span>
+<span class="sd">            :category: Test</span>
+<span class="sd">            :test_type: auto</span>
+<span class="sd">            :format: table</span>
+
+<span class="sd">            This test case verifies that the latex builder can be run</span>
+<span class="sd">            for basic usage of this extension. This test case only</span>
+<span class="sd">            checks that the builder runs without error; it does not</span>
+<span class="sd">            check any of the output.</span>
+
+<span class="sd">        .. traceable-graph::</span>
+<span class="sd">            :tags: TEST-LATEXBUILD</span>
+<span class="sd">            :relationships: parents</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_all</span><span class="p">()</span></div>
+<span class="c1">#    with open(os.path.join(app.outdir, &quot;Python.tex&quot;)) as index_file:</span>
+<span class="c1">#        index_tex = index_file.read()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, t4ngo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
