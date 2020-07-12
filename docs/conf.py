@@ -25,7 +25,7 @@ def read(*names):
 # General configuration
 
 project = u'sphinxcontrib.traceables'
-copyright = u'2015, Christo'
+copyright = u'2020, Yves Renier'
 release = read('..', 'VERSION.txt')    # The full version, incl alpha/beta/rc.
 version = '.'.join(release.split('.')[0:2]) # The short X.Y version.
 

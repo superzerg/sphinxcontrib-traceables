@@ -16,39 +16,12 @@ Contents
    gettingstarted
    usage
    internals
-
-
-**************************************************************************
-Examples
-**************************************************************************
-
-
-See the ``examples`` directory (available `on GitHub <github-example_>`_)
-within this extension's source code for a complete Sphinx project
-demonstrating various features provided by this extension.
-
-The documentation obtained from these examples is also directly available here:
-
-  - `the constellation example <./constellations/index.html>`_
-  - `the requirement example <./requirements/index.html>`_
-
-
-Most functionalities of this extension are tested with pytest. The data for
-the tests are in the ``tests/data`` directory (available
-`on GitHub <github-test-data_>`_) within this extension's source code.
-
-The documentation obtained from the tests not expecting to raise warnings or errors are also directly available here:
-
-  - `Graph test <./test-graph/index.html>`_
-  - `List test <./test-list/index.html>`_
-  - `matrix test <./test-matrix/index.html>`_
-
+   examples
 
 .. toctree::
    :hidden:
 
    license
-
 
 Copyright
 ===============================================================================
@@ -72,8 +45,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-.. _github-example:
-   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples
-.. _github-test-data:
-   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples
