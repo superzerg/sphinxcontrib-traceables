@@ -152,8 +152,7 @@ class BulletListFormatter(ListFormatterBase):
 def list_of_attributes(argument):
     if not argument:
         return []
-    return filter(None, (attribute.strip()
-                         for attribute in argument.split(",")))
+    return [attribute.strip() for attribute in argument.split(",") if attribute]
 
 
 class TraceableListDirective(Directive):

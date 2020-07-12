@@ -9,6 +9,13 @@ jobs:
       dist: bionic
       python: 3.8
       deploy:
+        - provider: pages:git
+          verbose: true                      # Verbose output.
+          token:
+            - secure: "oV1HSbLBoUFgzXsdWJr2Xxz+W/sQTTYEsMm7aW7c0GdRR9y8sCKOiPWHNu1KEKYu1m6qlH6RPYd2iyuGTCV4Cg8D6785G6vS//BJWRjvzSVI+RKIWPbxDwgVWoZKpbBFj/j43t8eBpJJXjoGvE3wzw+G/TWkNBE7zzkMSU2bs60w4Jg5DtUx9o20XKYBm6nydkxKLbJOmzidnKtt7lL9ip4dEqX4wDZeiGVoG2kd27nDRwsV4d/B9ep/Uqz+meh9tCqcqoDez4VrkGO8aK5Hpz70WNapjR0wHavem6/Zy+jzml+BlFRc41sUt1kqUP5h+wwqA8bmRixO0lXTASYoJHdJZxYkRMhMTHxtj1wUmsFUm2Ll8LdXU21iJQfb1JBkqgH1IkkeNXILptJkN7vW+Zl/49GWET7DoF0zQvDjo7qKp0n6Tzth11QebrmFHwwCGb8gAtbBiUpoyrpkMQJWVq3po73zexrZJIfJdhDBVxNxJEWMu/YY5V3JZnWap64ZZ0asffojJlZtvra5mYqLq8oZ7P30xy/heyxtBeDr9CdyZ2rL/T9MVnzD01cpSms9OmKucalEIhSHg4SbCOCk2eejrOyNSdR1jOZBrf9yq2mppPxI9yW0SFEuFdck8cWg9YaPpROOV2IO7kGq4RwDvy0uSJftUfi0PFq+4amw/JM="
+          edge: true                        # Use new Travis API.
+          local_dir: ./docs/_build/         # Location of build docs.
+          keep_history: true                # Create incremental commit
         - provider: pypi
           on:
             branch: deploy
@@ -26,13 +33,6 @@ jobs:
           password:
             secure: "oXvCKlob6EGN6kLwEDgr38io6JFR2yKwuE0o5NhUOl2jAdkR/FJe/ck5C5p0+vyM9NpGiI9K27RE1J7946IWBw02XddQ4vizBn7FisY4bE/0iYfdkowsTiV6RxX4ZKThoeJBN1Hhz4i9vct8RnmLgsadXiFCIjhsfeXJ6UdOBupAgZk0ROEJApk5D3TK4EVk0F4/0CWzHHZNSAgEqnJzZNm15aNiExc+/Nq0Cysg1YgCkF3lfrNfFfk5o6rbIpjUXMX2rzYa64AQ3BOSfmn7EcKzZ+AZBFFumbDk12vYcQsWxrykEh2tARz5hCgn3PtspgaxfLFlQhcksD7VsDI9vZzSe5WF3mv/ixnKwGoPJHFUXO/N7U4dTLwe9fTH7rbBOLlHasRIvDPbD/rfMTmOVEkAo7g5rDwgh3Mpv0P9xorMJzViHRp0h2KDJg4gmCxkQplw/9OB81IBaokfyHpRYdOFTjREUvlb8sVm/xl6bI0W6fiUMlgmpzaqmGQPcOlazwJ6UPrxv6XK9+vyc6/a96fbFzLv1AUb2bXt5ZEgoQkktxAYMgwKc8dcFYdofoSdt2jrtM4L9fXNe/ziNZE8Ic4b+nYfZv3RPbafT/SeH6LYd79SSmHnOFmt7VxoYLGRWwKqkv635iCNCu+Txk8WryKZhFGevoLxM0+1QrH2ZSk="
           server: https://test.pypi.org/legacy/ # Remove for pypi deployment to official PyPi repo
-        - provider: pages:git
-          verbos: true                      # Verbose output.
-          token:
-            - secure: "oV1HSbLBoUFgzXsdWJr2Xxz+W/sQTTYEsMm7aW7c0GdRR9y8sCKOiPWHNu1KEKYu1m6qlH6RPYd2iyuGTCV4Cg8D6785G6vS//BJWRjvzSVI+RKIWPbxDwgVWoZKpbBFj/j43t8eBpJJXjoGvE3wzw+G/TWkNBE7zzkMSU2bs60w4Jg5DtUx9o20XKYBm6nydkxKLbJOmzidnKtt7lL9ip4dEqX4wDZeiGVoG2kd27nDRwsV4d/B9ep/Uqz+meh9tCqcqoDez4VrkGO8aK5Hpz70WNapjR0wHavem6/Zy+jzml+BlFRc41sUt1kqUP5h+wwqA8bmRixO0lXTASYoJHdJZxYkRMhMTHxtj1wUmsFUm2Ll8LdXU21iJQfb1JBkqgH1IkkeNXILptJkN7vW+Zl/49GWET7DoF0zQvDjo7qKp0n6Tzth11QebrmFHwwCGb8gAtbBiUpoyrpkMQJWVq3po73zexrZJIfJdhDBVxNxJEWMu/YY5V3JZnWap64ZZ0asffojJlZtvra5mYqLq8oZ7P30xy/heyxtBeDr9CdyZ2rL/T9MVnzD01cpSms9OmKucalEIhSHg4SbCOCk2eejrOyNSdR1jOZBrf9yq2mppPxI9yW0SFEuFdck8cWg9YaPpROOV2IO7kGq4RwDvy0uSJftUfi0PFq+4amw/JM="
-          edge: true                        # Use new Travis API.
-          local_dir: ./docs/build/html/     # Location of build docs.
-          keep_history: true                # Create incremental commi
     - name: "Python 3.5 on bionic"
       os: linux
       dist: bionic

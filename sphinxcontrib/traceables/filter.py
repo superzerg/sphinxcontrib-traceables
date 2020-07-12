@@ -135,9 +135,6 @@ class FilterVisitor(ast.NodeVisitor):
                                 .format(node.__class__.__name__))
 
     def visit_Constant(self, node):
-        print('node:', node)
-        print('attribute:', node._attributes)
-        print('type:', type(node))
         if isinstance(node, ast.BinOp):
             return self.visit_BoolOp(node)
         elif isinstance(node.value, str):
