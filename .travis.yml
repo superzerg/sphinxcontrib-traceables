@@ -73,9 +73,12 @@ install:
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
+- pip3 install sphinx_rtd_theme
 script:
 - pytest --cov=sphinxcontrib.traceables
-- sphinx-build docs/ docs/_build/
-- touch docs/_build/.nojekyll
+- sphinx-build docs/ docs/_build/ # build doc
+- touch docs/_build/.nojekyll     # for github, so hte htmlpages are not understood as jekill
+- sphinx-build examples/constellations/ examples/constellations/_build/
+#- sphinx-build examples/requirements/ examples/requirements/_build/
 after_success:
 - coveralls
