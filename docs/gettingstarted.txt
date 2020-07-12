@@ -11,7 +11,7 @@ Overview
 Installation
 ==============================================================================
 
-Install this package using ``pip install sphinxcontrib-traceables``, or
+Install this package using ``pip install sphinxcontrib-traceables0.2``, or
 from source using ``python setup.py install``. Then add it to your
 project's Sphinx configuration file ``conf.py``:
 
@@ -48,4 +48,4 @@ within this extension's source code for a complete Sphinx project
 demonstrating various features provided by this extension.
 
 .. _github-example:
-   https://github.com/t4ngo/sphinxcontrib-traceables/tree/master/example
+   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples

@@ -137,7 +137,7 @@ all traceables related to each other with the ``children`` relationship:
 
 The directive shown above creates a traceability matrix as shown below.
 The image below is a screenshot from the latex-PDF generated for the
-`example project <https://github.com/t4ngo/sphinxcontrib-traceables/tree/master/example>`_
+`example constellation project <constellations-example_>`_
 which is part of this extension's source code.
 
 .. image:: _static/example-matrix-table.*
@@ -147,11 +147,51 @@ which is part of this extension's source code.
 Showing traceables graphs
 ==============================================================================
 
-This section is yet to be written...
+Relationships between traceables can be shown using the ``traceable-graph``
+directive described below.
 
+.. rst:directive:: .. traceable-graph::
+
+   Generate a traceables graph. The graph shows all traceables which
+   are related to the give traceables (see the
+   ``:tags:`` option below).
+
+   The following options are available for this directive:
+
+   ``:tags:`` -- traceable tags *(required)*
+      Specify comma separated tags for which the graph will be built.
+      All traceables related (with any depth) to these tags with the given
+      ``:relationships:`` will be part of the resulting graph.
+
+   ``:relationships:`` -- name of traceables relationship *(optional)*
+      Specify which relationships between traceables to show in the
+      generated graph. If not spefied, all relationships are shown.
+
+   ``:caption:`` -- string *(optional)*
+      Caption for the graph.
+
+
+For example, the directive shown below would generate a graph showing
+all traceables related to each other with the ``children`` relationship:
+
+.. code-block:: rest
+
+    .. traceable-graph::
+       :tags: SAGITTA, PEGASUS
+
+The directive shown above creates a traceability graph as shown below.
+The image below is a screenshot from the latex-PDF generated for the
+`example constellation project <constellations-example_>`_
+which is part of this extension's source code.
+
+.. image:: _static/example-graph.*
 
 .. comment: ==================================================================
 
 .. [#rest-directive-spec] The formal specification of reStructuredText
    directives is documented here:
    http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#directives
+
+
+.. _constellations-example:
+   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples/constellations

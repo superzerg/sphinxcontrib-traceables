@@ -198,7 +198,7 @@ List of system requirements:
 
 
 .. |sphinxcontrib-traceables| replace::
-    `sphinxcontrib-traceables <https://github.com/t4ngo/sphinxcontrib-traceables>`__
+    `sphinxcontrib-traceables <https://github.com/superzerg/sphinxcontrib-traceables>`__
 
 .. |OpsCon| replace:: :abbr:`OpsCon (Operational Concept)`
 
