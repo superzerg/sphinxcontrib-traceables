@@ -78,6 +78,6 @@ script:
 - sphinx-build docs/ docs/_build/ # build doc
 - touch docs/_build/.nojekyll     # for github, so hte htmlpages are not understood as jekill
 - sphinx-build examples/constellations/ examples/constellations/_build/
-#- sphinx-build examples/requirements/ examples/requirements/_build/
+- sphinx-build examples/requirements/ examples/requirements/_build/
 after_success:
 - coveralls
