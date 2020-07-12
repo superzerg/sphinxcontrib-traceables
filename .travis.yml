@@ -14,7 +14,7 @@ jobs:
             all_branches: true
           cleanup: false
           github_token:
-            secure: "oV1HSbLBoUFgzXsdWJr2Xxz+W/sQTTYEsMm7aW7c0GdRR9y8sCKOiPWHNu1KEKYu1m6qlH6RPYd2iyuGTCV4Cg8D6785G6vS//BJWRjvzSVI+RKIWPbxDwgVWoZKpbBFj/j43t8eBpJJXjoGvE3wzw+G/TWkNBE7zzkMSU2bs60w4Jg5DtUx9o20XKYBm6nydkxKLbJOmzidnKtt7lL9ip4dEqX4wDZeiGVoG2kd27nDRwsV4d/B9ep/Uqz+meh9tCqcqoDez4VrkGO8aK5Hpz70WNapjR0wHavem6/Zy+jzml+BlFRc41sUt1kqUP5h+wwqA8bmRixO0lXTASYoJHdJZxYkRMhMTHxtj1wUmsFUm2Ll8LdXU21iJQfb1JBkqgH1IkkeNXILptJkN7vW+Zl/49GWET7DoF0zQvDjo7qKp0n6Tzth11QebrmFHwwCGb8gAtbBiUpoyrpkMQJWVq3po73zexrZJIfJdhDBVxNxJEWMu/YY5V3JZnWap64ZZ0asffojJlZtvra5mYqLq8oZ7P30xy/heyxtBeDr9CdyZ2rL/T9MVnzD01cpSms9OmKucalEIhSHg4SbCOCk2eejrOyNSdR1jOZBrf9yq2mppPxI9yW0SFEuFdck8cWg9YaPpROOV2IO7kGq4RwDvy0uSJftUfi0PFq+4amw/JM="
+            secure: "EEU7RL37cuwtGzeeFfz4R3969VuWyYudbb1+Uc3CqvQwxp+ckUWf+s6tGkwocgsVd5STSONvW1/+oFNiuSzkL/hQLm/7nVssnF9WIbdylfOXcxAPCoa74AGizTHKvw8/PZtCA/h2FGso+WkcnlUp6eKM0wIcXuLnhfOAKie+kwX6ZkmMXQi24inqCKVhx3yGgUgHUvY0FXAB/wcdD4Wd04Yuay/CMPHPLiwv1/Xjoi46GtMf2e/en5WcgiBsZ8AjmTgdOx/nMymLbt2t5IoaB3PFsJ3x7ew+jC/2A8gPaeTXkht5PyPB0up6lGT0ixf5LwBCtXPbRvyZ2IFf2CtMa+5xa1KH9eoe6WkVsvMS62G5GLc23y6ibz25PKVtnCIYSoOn050bxNgR6ZD5wTY+q7eDEXpYSsV5f0ONkYw77vmTBgz+0v6lN9F2TmmBGSw9LzL/hmtw9qVZH3drUUbqq2pqXZ5DW9PnPAkONQ/s0WAEsYgJaAwLtdGX5BMjrcIQNQ/oGGVATs91vE7BITds/sX3EibZlubKMoR2vC8iidOVB0WfcJaL8WwlPjniS8P/HFvlqdWzMLYZ+rhimOebgShZBRqN3yvOFgnsTUca2vnT/0OMwUs3KPmnd7OwdnVOYTkurQsNEJRQCEeL4RBsgImB4hs8WdFBgIx5twIOcVs="
           local_dir: ./docs/_build/         # Location of build docs.
           keep_history: true                # Create incremental commit
         - provider: pypi
