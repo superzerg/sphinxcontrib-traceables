@@ -130,5 +130,21 @@ class FilterVisitor(ast.NodeVisitor):
                                     .format(node.ops[0].__class__.__name__))
 
     def generic_visit(self, node):
+
         raise FilterError(node, "Invalid input of type {0}"
                                 .format(node.__class__.__name__))
+
+    def visit_Constant(self, node):
+        print('node:', node)
+        print('attribute:', node._attributes)
+        print('type:', type(node))
+        if isinstance(node, ast.BinOp):
+            return self.visit_BoolOp(node)
+        elif isinstance(node.value, str):
+            return self.visit_Str(node)
+        elif isinstance(node.value, int) or isinstance(node.value, float):
+            return self.visit_Num(node)
+        elif isinstance(node.value, bytes):
+            return self.visit_Bytes(node)
+        else:
+            return self.generic_visit(node)
