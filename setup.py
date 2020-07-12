@@ -41,6 +41,9 @@ setup(
       tests_require=[
           'pytest'
       ],
+      doc_require=[
+          'sphinx_rtd_theme',
+      ],
       classifiers=[
                    "Development Status :: 3 - Alpha",
                    "Environment :: Other Environment",

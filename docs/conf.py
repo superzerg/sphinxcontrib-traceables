@@ -47,9 +47,9 @@ html_show_sourcelink = True            # Link to source from pages.
 #intersphinx configuration
 
 intersphinx_mapping = {
-  'constellations': ('constellations/', './_build/constellations/objects.inv'),
-  'requirements': ('requirements/', './_build/requirements/objects.inv'),
-  'test-graph': ('test-graph/', './_build/test-graph/objects.inv'),
-  'test-list': ('test-list/', './_build/test-list/objects.inv'),
-  'test-matrix': ('test-matrix/', './_build/test-matrix/objects.inv'),
+  'constellations': ('https://superzerg.github.io/sphinxcontrib-traceables/constellations/', './_build/constellations/objects.inv'),
+  'requirements': ('https://superzerg.github.io/sphinxcontrib-traceables/requirements/', './_build/requirements/objects.inv'),
+  'test-graph': ('https://superzerg.github.io/sphinxcontrib-traceables/test-graph/', 'https://superzerg.github.io/sphinxcontrib-traceables/test-graph/objects.inv'),
+  'test-list': ('https://superzerg.github.io/sphinxcontrib-traceables/test-list/', './_build/test-list/objects.inv'),
+  'test-matrix': ('https://superzerg.github.io/sphinxcontrib-traceables/test-matrix/', './_build/test-matrix/objects.inv'),
 }

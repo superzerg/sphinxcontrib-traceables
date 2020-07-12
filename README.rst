@@ -27,10 +27,10 @@ Thanks to `t4ngo`_ for the great extension and to `rexut`_ for the upgrade to py
 
 .. _rexut: https://github.com/rexut
 
-.. |docs-status| image:: https://readthedocs.org/projects/sphinxcontrib-traceables/badge/?version=latest
-    :alt: Documentation status
+.. |docs-status|image:: https://readthedocs.org/projects/sphinxcontrib-traceables02/badge/?version=latest
+    :alt: Documentation Status
     :scale: 100%
-    :target: https://sphinxcontrib-traceables.readthedocs.org/en/latest/?badge=latest
+    :target: https://sphinxcontrib-traceables02.readthedocs.io/en/latest/?badge=latest
 
 .. |build-status| image:: https://api.travis-ci.org/superzerg/sphinxcontrib-traceables.svg
     :alt: Build status
