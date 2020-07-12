@@ -12,7 +12,7 @@ jobs:
         - provider: pages
           on:
             all_branches: true
-          cleanup: false
+          skip_cleanup: true
           github_token:
             secure: "EEU7RL37cuwtGzeeFfz4R3969VuWyYudbb1+Uc3CqvQwxp+ckUWf+s6tGkwocgsVd5STSONvW1/+oFNiuSzkL/hQLm/7nVssnF9WIbdylfOXcxAPCoa74AGizTHKvw8/PZtCA/h2FGso+WkcnlUp6eKM0wIcXuLnhfOAKie+kwX6ZkmMXQi24inqCKVhx3yGgUgHUvY0FXAB/wcdD4Wd04Yuay/CMPHPLiwv1/Xjoi46GtMf2e/en5WcgiBsZ8AjmTgdOx/nMymLbt2t5IoaB3PFsJ3x7ew+jC/2A8gPaeTXkht5PyPB0up6lGT0ixf5LwBCtXPbRvyZ2IFf2CtMa+5xa1KH9eoe6WkVsvMS62G5GLc23y6ibz25PKVtnCIYSoOn050bxNgR6ZD5wTY+q7eDEXpYSsV5f0ONkYw77vmTBgz+0v6lN9F2TmmBGSw9LzL/hmtw9qVZH3drUUbqq2pqXZ5DW9PnPAkONQ/s0WAEsYgJaAwLtdGX5BMjrcIQNQ/oGGVATs91vE7BITds/sX3EibZlubKMoR2vC8iidOVB0WfcJaL8WwlPjniS8P/HFvlqdWzMLYZ+rhimOebgShZBRqN3yvOFgnsTUca2vnT/0OMwUs3KPmnd7OwdnVOYTkurQsNEJRQCEeL4RBsgImB4hs8WdFBgIx5twIOcVs="
           local_dir: ./docs/_build/         # Location of build docs.
