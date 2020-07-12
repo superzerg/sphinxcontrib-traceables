@@ -13,7 +13,7 @@ as relationship graphs.
 
 More information is available here:
 
-- Documentation: https://sphinxcontrib-traceables.readthedocs.org/en/latest/
+- Documentation: https://superzerg.github.io/sphinxcontrib-traceables/
 - Download: https://pypi.python.org/pypi/sphinxcontrib-traceables0.2
 - Development: https://github.com/superzerg/sphinxcontrib-traceables
 
