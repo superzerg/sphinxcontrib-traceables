@@ -10,6 +10,7 @@ from glob import glob
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'sphinx.ext.intersphinx'
 ]
 
 # -------------------------------------------------------------------------
@@ -30,7 +31,10 @@ release = read('..', 'VERSION.txt')    # The full version, incl alpha/beta/rc.
 version = '.'.join(release.split('.')[0:2]) # The short X.Y version.
 
 templates_path = ['_templates']
-source_suffix = '.txt'                 # The suffix of source filenames.
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'restructuredtext',
+}
 master_doc = 'index'                   # The master toctree document.
 today_fmt = '%Y-%m-%d'
 exclude_patterns = ['_build']
@@ -42,3 +46,14 @@ keep_warnings = True                   # Keep warnings in output documents.
 
 html_theme = 'sphinx_rtd_theme'
 html_show_sourcelink = True            # Link to source from pages.
+
+# ----------------------------------------------------------------------
+#intersphinx configuration
+
+intersphinx_mapping = {
+  'constellations': ('../_build/constellations/', './_build/constellations/objects.inv'),
+  'requirements': ('../_build/requirements/', './_build/requirements/objects.inv'),
+  'test-graph': ('../_build/test-graph/', './_build/test-graph/objects.inv'),
+  'test-list': ('../_build/test-list/', './_build/test-list/objects.inv'),
+  'test-matrix': ('../_build/test-matrix/', './_build/test-matrix/objects.inv'),
+}

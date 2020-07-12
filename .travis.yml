@@ -49,7 +49,7 @@ jobs:
     - name: "Python 3.8.3 on macOS"
       os: osx
       osx_image: xcode12  # macOS 10.15.5
-      language: shell       # 'language: python' is an error on Travis CI macOS
+      language: shell # 'language: python' is an error on Travis CI macOS
       before_install:
         - brew install graphviz
         - pip3 install virtualenv
@@ -77,17 +77,17 @@ install:
 - pip3 install sphinx_rtd_theme
 script:
 - pytest --cov=sphinxcontrib.traceables
-- sphinx-build docs/ docs/_build/ # build doc
-- touch docs/_build/.nojekyll     # for github, so hte htmlpages are not understood as jekill
 - sphinx-build examples/constellations/ docs/_build/constellations/
-- touch docs/_build/constellations/.nojekyll     # for github, so hte htmlpages are not understood as jekill
+- touch docs/_build/constellations/.nojekyll # for github, so hte html pages are not understood as jekill
 - sphinx-build examples/requirements/ docs/_build/requirements/
-- touch docs/_build/requirements/.nojekyll
+- touch docs/_build/requirements/.nojekyll # for github, so hte html pages are not understood as jekill
 - sphinx-build tests/data/test-graph docs/_build/test-graph/
-- touch docs/_build/test-graph/.nojekyll
+- touch docs/_build/test-graph/.nojekyll # for github, so hte html pages are not understood as jekill
 - sphinx-build tests/data/test-list docs/_build/test-list/
-- touch docs/_build/test-list/.nojekyll
+- touch docs/_build/test-list/.nojekyll # for github, so hte html pages are not understood as jekill
 - sphinx-build tests/data/test-matrix docs/_build/test-matrix/
-- touch docs/_build/test-matrix/.nojekyll
+- touch docs/_build/test-matrix/.nojekyll # for github, so hte html pages are not understood as jekill
+- sphinx-build docs/ docs/_build/ # build main doc
+- touch docs/_build/.nojekyll # for github, so hte html pages are not understood as jekill
 after_success:
 - coveralls
