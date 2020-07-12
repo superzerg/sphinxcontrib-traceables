@@ -26,15 +26,15 @@ setup(
       version=get_version(),
       description="Sphinx extension that adds traceability within "
                   "documentation",
-      author="Yves Renier, Stephan Linz, Christo Butcher",
-      author_email="",
+      author="Yves Renier",
+      author_email="yves.renier@epfl.ch",
       url="https://github.com/superzerg/sphinxcontrib-traceables",
       license="Apache 2.0",
       long_description=read("README.rst"),
       packages=find_packages(),
       include_package_data=True,
       install_requires=[
-          'Sphinx',
+          'Sphinx>=2.1',
           'graphviz>=0.4.6'
       ],
       platforms="any",
