@@ -79,7 +79,15 @@ script:
 - pytest --cov=sphinxcontrib.traceables
 - sphinx-build docs/ docs/_build/ # build doc
 - touch docs/_build/.nojekyll     # for github, so hte htmlpages are not understood as jekill
-- sphinx-build examples/constellations/ examples/constellations/_build/
-- sphinx-build examples/requirements/ examples/requirements/_build/
+- sphinx-build examples/constellations/ docs/_build/constellations/
+- touch docs/_build/constellations/.nojekyll     # for github, so hte htmlpages are not understood as jekill
+- sphinx-build examples/requirements/ docs/_build/requirements/
+- touch docs/_build/requirements/.nojekyll
+- sphinx-build tests/data/test-graph docs/_build/test-graph/
+- touch docs/_build/test-graph/.nojekyll
+- sphinx-build tests/data/test-list docs/_build/test-list/
+- touch docs/_build/test-list/.nojekyll
+- sphinx-build tests/data/test-matrix docs/_build/test-matrix/
+- touch docs/_build/test-matrix/.nojekyll
 after_success:
 - coveralls
