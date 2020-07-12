@@ -39,7 +39,6 @@ setup(
       ],
       platforms="any",
       tests_require=[
-          'nose',
           'pytest'
       ],
       classifiers=[

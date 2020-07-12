@@ -1,7 +1,10 @@
 import pytest
-from nose.tools import eq_
 from sphinxcontrib.traceables.infrastructure import TraceablesStorage
 from sphinxcontrib.traceables.matrix import TraceableMatrix
+
+
+def eq_(a, b, msg=None):
+    assert a == b, "%r != %r" % (a, b)
 
 
 @pytest.mark.sphinx(buildername="xml", testroot="traceable_matrix")

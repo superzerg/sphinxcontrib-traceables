@@ -37,6 +37,12 @@ jobs:
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
       language: shell       # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - brew install graphviz
+        - pip3 install virtualenv
+        - virtualenv -p python3 venv
+        -  . ./venv/bin/activate
+
     - name: "Python 3.8.0 on Windows 10"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
@@ -49,19 +55,12 @@ addons:
   apt:
     packages:
     - graphviz
-before_install:
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install graphviz; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then pip3 install virtualenv; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then virtualenv -p python3 venv; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./venv/bin/activate; fi
 install:
 - pip3 install --upgrade pip
 - pip3 install git+https://github.com/superzerg/sphinxcontrib-traceables.git
-- pip3 install nose
 - pip3 install pytest-cov
 - pip3 install coveralls
 - pip3 install twine
-- pip3 install sphinx==2.1.0
 script:
 - pytest --cov=sphinxcontrib.traceables
 after_success:

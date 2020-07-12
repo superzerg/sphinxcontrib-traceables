@@ -1,5 +1,5 @@
+import pytest
 import sys
-from nose.tools import assert_raises
 from sphinxcontrib.traceables.filter import FilterError, ExpressionMatcher
 from sphinxcontrib.traceables.infrastructure import Traceable, TraceablesFilter
 
@@ -17,12 +17,12 @@ def test_filter_syntax():
         matcher = ExpressionMatcher(expression_input)
         return matcher.matches(identifier_values)
 
-    assert_raises(FilterError, match, "invalid syntax")
-    assert_raises(FilterError, match, "")
-    assert_raises(FilterError, match, "color\nversion")
-    assert_raises(FilterError, match, "color + version")
-    assert_raises(FilterError, match, "color, version")
-    assert_raises(FilterError, match, "unknown_identifier")
+    pytest.raises(FilterError, match, "invalid syntax")
+    pytest.raises(FilterError, match, "")
+    pytest.raises(FilterError, match, "color\nversion")
+    pytest.raises(FilterError, match, "color + version")
+    pytest.raises(FilterError, match, "color, version")
+    pytest.raises(FilterError, match, "unknown_identifier")
 
 
 def test_filter_operators():
@@ -87,11 +87,11 @@ def test_filter_operators():
     assert match("color == 'blue' or version > 2.0") is False
  
     # Valid but unsupported operator
-    assert_raises(FilterError, match, "version is 1.2")
-    assert_raises(FilterError, match, "1.0 < version <= 1.2")
+    pytest.raises(FilterError, match, "version is 1.2")
+    pytest.raises(FilterError, match, "1.0 < version <= 1.2")
 
     # Invalid operator, syntax error
-    assert_raises(FilterError, match, "version INVALID 1.2")
+    pytest.raises(FilterError, match, "version INVALID 1.2")
 
 
 def test_filter_special_symbols():
@@ -101,7 +101,7 @@ def test_filter_special_symbols():
     }
 
     matcher = ExpressionMatcher("color == 'red'")
-    assert_raises(FilterError, matcher.matches, identifier_values)
+    pytest.raises(FilterError, matcher.matches, identifier_values)
 
 
 # =============================================================================

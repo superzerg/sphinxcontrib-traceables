@@ -5,6 +5,7 @@ from html.parser import HTMLParser
 
 
 @pytest.mark.sphinx(buildername="xml", testroot="basics")
+@pytest.mark.filterwarnings("ignore: no traceable with tag")
 def test_xml_basics(app, warning):
     """Verify definition of and linking between traceables
 
