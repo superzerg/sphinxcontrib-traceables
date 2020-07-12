@@ -13,7 +13,7 @@ as relationship graphs.
 
 More information is available here:
 
-- Documentation: https://superzerg.github.io/sphinxcontrib-traceables/
+- Documentation: https://superzerg.github.io/sphinxcontrib-traceables
 - Download: https://pypi.python.org/pypi/sphinxcontrib-traceables0.2
 - Development: https://github.com/superzerg/sphinxcontrib-traceables
 
@@ -27,7 +27,7 @@ Thanks to `t4ngo`_ for the great extension and to `rexut`_ for the upgrade to py
 
 .. _rexut: https://github.com/rexut
 
-.. |docs-status|image:: https://readthedocs.org/projects/sphinxcontrib-traceables02/badge/?version=latest
+.. |docs-status| image:: https://readthedocs.org/projects/sphinxcontrib-traceables02/badge/?version=latest
     :alt: Documentation Status
     :scale: 100%
     :target: https://sphinxcontrib-traceables02.readthedocs.io/en/latest/?badge=latest
