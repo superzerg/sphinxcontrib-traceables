@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logical architecture &mdash; sphinxcontrib.traceables 0.2.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The infrastructure module: Infrastructure for processing traceables" href="internals/infrastructure.html" />
+    <link rel="prev" title="Extension internals" href="internals.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> sphinxcontrib.traceables
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Extension internals</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logical architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#behavioral-architecture-model">Behavioral architecture model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#during-parsing-of-source-files">During parsing of source files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traceable-directive">Traceable directive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traceable-role">Traceable role</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#after-doctree-has-been-resolved">After doctree has been resolved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purging-of-old-state">Purging of old state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="internals/infrastructure.html">The <code class="docutils literal notranslate"><span class="pre">infrastructure</span></code> module: Infrastructure for processing traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/traceables.html">The <code class="docutils literal notranslate"><span class="pre">traceables</span></code> module: Core traceables functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/matrix.html">The <code class="docutils literal notranslate"><span class="pre">matrix</span></code> module: Matrices of traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/graph.html">The <code class="docutils literal notranslate"><span class="pre">graph</span></code> module: Visualization of traceables</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sphinxcontrib.traceables</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="internals.html">Extension internals</a> &raquo;</li>
+        
+      <li>Logical architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/logicarch.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logical-architecture">
+<h1>Logical architecture<a class="headerlink" href="#logical-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="behavioral-architecture-model">
+<h2>Behavioral architecture model<a class="headerlink" href="#behavioral-architecture-model" title="Permalink to this headline">¶</a></h2>
+<p>When Sphinx is run, this extension performs the steps listed below.</p>
+<ol class="arabic simple">
+<li><p>Initialization</p>
+<ul class="simple">
+<li><p>Sphinx calls <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code>, which
+registers the extension’s directives, roles, event handlers, etc.</p></li>
+</ul>
+</li>
+<li><p>Parsing source files</p>
+<ul class="simple">
+<li><p>When Sphinx encounters a traceables directive or role while parsing
+input, it calls the associated class.</p></li>
+<li><p>The directive or role class processes its input and creates one or
+more nodes which are then inserted into the resulting doctree; these
+will be processed later after all source files have been parsed.</p></li>
+<li><p>A directive that defines a new traceable item adds that item to the
+traceables cache that this extension maintains, so that later
+processing logic knows about all traceable items.</p></li>
+</ul>
+</li>
+<li><p>Processing doctrees</p>
+<ul class="simple">
+<li><p>During initialization, this extension registered a handler for the
+<a class="reference external" href="http://sphinx-doc.org/extdev/appapi.html#event-doctree-resolved">event-doctree-resolved</a> event; that handler is called after all
+source files have been parsed into doctrees.</p></li>
+<li><p>The event handler calls the
+<a class="reference internal" href="internals/infrastructure.html#sphinxcontrib.traceables.infrastructure.ProcessorManager" title="sphinxcontrib.traceables.infrastructure.ProcessorManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessorManager</span></code></a>
+to process the given doctree; it in turn calls classes derived from
+<a class="reference internal" href="internals/infrastructure.html#sphinxcontrib.traceables.infrastructure.ProcessorBase" title="sphinxcontrib.traceables.infrastructure.ProcessorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessorBase</span></code></a>
+to perform the various traceables functionalities.</p></li>
+</ul>
+</li>
+<li><p>Maintaining state information</p>
+<ul class="simple">
+<li><p>During initialization, this extension registered a handler for the
+<a class="reference external" href="http://sphinx-doc.org/extdev/appapi.html#event-env-purge-doc">event-env-purge-doc</a> event; that handler is called to clean up
+any state this extension may keep related to a given source file.</p></li>
+<li><p>The event handler calls the
+<a class="reference internal" href="internals/infrastructure.html#sphinxcontrib.traceables.infrastructure.TraceablesStorage" title="sphinxcontrib.traceables.infrastructure.TraceablesStorage"><code class="xref py py-class docutils literal notranslate"><span class="pre">TraceablesStorage</span></code></a>
+to remove all information stored in its cache related to the given
+source file.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="during-parsing-of-source-files">
+<h2>During parsing of source files<a class="headerlink" href="#during-parsing-of-source-files" title="Permalink to this headline">¶</a></h2>
+<p>This extension adds the following directives and roles which are used by
+Sphinx during parsing of source.</p>
+<div class="section" id="traceable-directive">
+<h3>Traceable directive<a class="headerlink" href="#traceable-directive" title="Permalink to this headline">¶</a></h3>
+<p>When Sphinx encounters a traceable directive during parsing, a
+<a class="reference internal" href="internals/traceables.html#sphinxcontrib.traceables.traceables.TraceableDirective" title="sphinxcontrib.traceables.traceables.TraceableDirective"><code class="xref py py-class docutils literal notranslate"><span class="pre">TraceableDirective</span></code></a> is called to
+process the directive. It creates a target node, so that the traceable
+can be referenced from elsewhere in the documentation, and a
+presentation node, to show the traceable’s definition at the directive’s
+location in the documentation.</p>
+<p>The attributes defined in the traceable directive may contain references
+to other traceables which cannot be resolved until the entire doctree
+has been resolved. The attributes are therefore stored in a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">traceable_attribute_list</span></code>
+node for later processing.</p>
+</div>
+<div class="section" id="traceable-role">
+<h3>Traceable role<a class="headerlink" href="#traceable-role" title="Permalink to this headline">¶</a></h3>
+<p>When Sphinx encounters a traceable role during parsing, a
+<a class="reference internal" href="internals/traceables.html#sphinxcontrib.traceables.traceables.traceable_xref" title="sphinxcontrib.traceables.traceables.traceable_xref"><code class="xref py py-class docutils literal notranslate"><span class="pre">traceable_xref</span></code></a>
+cross reference node is created. Later on that
+note will be replaced by an appropriate final node.</p>
+</div>
+</div>
+<div class="section" id="after-doctree-has-been-resolved">
+<h2>After doctree has been resolved<a class="headerlink" href="#after-doctree-has-been-resolved" title="Permalink to this headline">¶</a></h2>
+<p>This extension registers the <code class="xref py py-func docutils literal notranslate"><span class="pre">process_traceables_in_doctree()</span></code> to be
+called when the <code class="docutils literal notranslate"><span class="pre">doctree-resolved</span></code> event fires. That callback function
+invokes the <code class="xref py py-class docutils literal notranslate"><span class="pre">TraceablesProcessor</span></code> to process the main business logic
+of this extension.</p>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">TraceablesProcessor</span></code> performs the following activities:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Collect all traceables defined throughout the documentation</p></li>
+<li><p>Analyze relationships between traceables; this is done with help from
+the <code class="xref py py-class docutils literal notranslate"><span class="pre">RelationshipManager</span></code> class</p></li>
+<li><p>Process <code class="xref py py-class docutils literal notranslate"><span class="pre">traceable_attribute_list</span></code> nodes; these are part of
+traceable directives</p></li>
+<li><p>Resolve <code class="xref py py-class docutils literal notranslate"><span class="pre">traceable_xref</span></code> cross reference nodes; these are
+created by traceable roles, amongst other possible sources</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="purging-of-old-state">
+<h2>Purging of old state<a class="headerlink" href="#purging-of-old-state" title="Permalink to this headline">¶</a></h2>
+<p>This extension registers the <code class="xref py py-func docutils literal notranslate"><span class="pre">purge_traceables()</span></code> to be
+called when the <code class="docutils literal notranslate"><span class="pre">env-purge-doc</span></code> event fires. That callback function
+removes the relevant data from the <code class="xref py py-class docutils literal notranslate"><span class="pre">TraceablesStorage</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="internals/infrastructure.html" class="btn btn-neutral float-right" title="The infrastructure module: Infrastructure for processing traceables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="internals.html" class="btn btn-neutral float-left" title="Extension internals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2015, Christo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

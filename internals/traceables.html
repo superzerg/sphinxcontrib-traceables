@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The traceables module: Core traceables functionality &mdash; sphinxcontrib.traceables 0.2.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The matrix module: Matrices of traceables" href="matrix.html" />
+    <link rel="prev" title="The infrastructure module: Infrastructure for processing traceables" href="infrastructure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sphinxcontrib.traceables
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Extension internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../logicarch.html">Logical architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">The <code class="docutils literal notranslate"><span class="pre">infrastructure</span></code> module: Infrastructure for processing traceables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">traceables</span></code> module: Core traceables functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">The <code class="docutils literal notranslate"><span class="pre">matrix</span></code> module: Matrices of traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html">The <code class="docutils literal notranslate"><span class="pre">graph</span></code> module: Visualization of traceables</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinxcontrib.traceables</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../internals.html">Extension internals</a> &raquo;</li>
+        
+      <li>The <code class="docutils literal notranslate"><span class="pre">traceables</span></code> module: Core traceables functionality</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/internals/traceables.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-sphinxcontrib.traceables.traceables"></span><div class="section" id="the-traceables-module-core-traceables-functionality">
+<h1>The <code class="docutils literal notranslate"><span class="pre">traceables</span></code> module: Core traceables functionality<a class="headerlink" href="#the-traceables-module-core-traceables-functionality" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.traceables.DefaultDict">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">DefaultDict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.DefaultDict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.traceables.RelationshipsProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">RelationshipsProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">process_node_type</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.RelationshipsProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.traceables.RelationshipsProcessor.process_doctree">
+<code class="sig-name descname">process_doctree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doctree</span></em>, <em class="sig-param"><span class="n">docname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.RelationshipsProcessor.process_doctree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">TraceableDirective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.create_index_node">
+<code class="sig-name descname">create_index_node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">env</span></em>, <em class="sig-param"><span class="n">tag</span></em>, <em class="sig-param"><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.create_index_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.create_target_node">
+<code class="sig-name descname">create_target_node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">env</span></em>, <em class="sig-param"><span class="n">tag</span></em>, <em class="sig-param"><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.create_target_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.final_argument_whitespace">
+<code class="sig-name descname">final_argument_whitespace</code><em class="property"> = False</em><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.final_argument_whitespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.has_content">
+<code class="sig-name descname">has_content</code><em class="property"> = True</em><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.has_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.option_spec">
+<code class="sig-name descname">option_spec</code><em class="property"> = {}</em><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.option_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.optional_arguments">
+<code class="sig-name descname">optional_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.optional_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.required_arguments">
+<code class="sig-name descname">required_arguments</code><em class="property"> = 1</em><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.required_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.traceables.TraceableDirective.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.TraceableDirective.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.traceables.XrefProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">XrefProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">process_node_type</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.XrefProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.traceables.XrefProcessor.process_doctree">
+<code class="sig-name descname">process_doctree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doctree</span></em>, <em class="sig-param"><span class="n">docname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.XrefProcessor.process_doctree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.traceables.traceables.setup">
+<code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.traceables.traceable_xref">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.traceables.</code><code class="sig-name descname">traceable_xref</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.traceables.traceable_xref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="matrix.html" class="btn btn-neutral float-right" title="The matrix module: Matrices of traceables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="infrastructure.html" class="btn btn-neutral float-left" title="The infrastructure module: Infrastructure for processing traceables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2015, Christo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

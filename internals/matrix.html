@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The matrix module: Matrices of traceables &mdash; sphinxcontrib.traceables 0.2.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The graph module: Visualization of traceables" href="graph.html" />
+    <link rel="prev" title="The traceables module: Core traceables functionality" href="traceables.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sphinxcontrib.traceables
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Extension internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../logicarch.html">Logical architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">The <code class="docutils literal notranslate"><span class="pre">infrastructure</span></code> module: Infrastructure for processing traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceables.html">The <code class="docutils literal notranslate"><span class="pre">traceables</span></code> module: Core traceables functionality</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">matrix</span></code> module: Matrices of traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html">The <code class="docutils literal notranslate"><span class="pre">graph</span></code> module: Visualization of traceables</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinxcontrib.traceables</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../internals.html">Extension internals</a> &raquo;</li>
+        
+      <li>The <code class="docutils literal notranslate"><span class="pre">matrix</span></code> module: Matrices of traceables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/internals/matrix.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-sphinxcontrib.traceables.matrix"></span><div class="section" id="the-matrix-module-matrices-of-traceables">
+<h1>The <code class="docutils literal notranslate"><span class="pre">matrix</span></code> module: Matrices of traceables<a class="headerlink" href="#the-matrix-module-matrices-of-traceables" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.BulletMatrixFormatter">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">BulletMatrixFormatter</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.BulletMatrixFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.BulletMatrixFormatter.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.BulletMatrixFormatter.format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.MatrixFormatterBase">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">MatrixFormatterBase</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.MatrixFormatterBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.MatrixFormatterBase.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.MatrixFormatterBase.format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.MatrixProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">MatrixProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.MatrixProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.MatrixProcessor.build_traceable_matrix">
+<code class="sig-name descname">build_traceable_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">forward</span></em>, <em class="sig-param"><span class="n">filter1</span></em>, <em class="sig-param"><span class="n">filter2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.MatrixProcessor.build_traceable_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.MatrixProcessor.process_node_with_formatter">
+<code class="sig-name descname">process_node_with_formatter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix_node</span></em>, <em class="sig-param"><span class="n">formatter</span></em>, <em class="sig-param"><span class="n">doctree</span></em>, <em class="sig-param"><span class="n">docname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.MatrixProcessor.process_node_with_formatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.TableMatrixFormatter">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">TableMatrixFormatter</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TableMatrixFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TableMatrixFormatter.create_cross_table">
+<code class="sig-name descname">create_cross_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TableMatrixFormatter.create_cross_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TableMatrixFormatter.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TableMatrixFormatter.format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">TraceableMatrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">forward_relationship</span></em>, <em class="sig-param"><span class="n">backward_relationship</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.add_primary">
+<code class="sig-name descname">add_primary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">primary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.add_primary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.add_secondary">
+<code class="sig-name descname">add_secondary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">secondary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.add_secondary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.add_traceable_pair">
+<code class="sig-name descname">add_traceable_pair</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">primary</span></em>, <em class="sig-param"><span class="n">secondary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.add_traceable_pair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.ascii_table">
+<code class="sig-name descname">ascii_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.ascii_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.backward_relationship">
+<em class="property">property </em><code class="sig-name descname">backward_relationship</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.backward_relationship" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.calculate_ranges">
+<code class="sig-name descname">calculate_ranges</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">total_length</span></em>, <em class="sig-param"><span class="n">max_range_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.calculate_ranges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.forward_relationship">
+<em class="property">property </em><code class="sig-name descname">forward_relationship</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.forward_relationship" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.get_boolean_row">
+<code class="sig-name descname">get_boolean_row</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">primary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.get_boolean_row" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.get_relatives">
+<code class="sig-name descname">get_relatives</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">primary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.get_relatives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.primaries">
+<em class="property">property </em><code class="sig-name descname">primaries</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.primaries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.secondaries">
+<em class="property">property </em><code class="sig-name descname">secondaries</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.secondaries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrix.split">
+<code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">max_secondaries</span></em>, <em class="sig-param"><span class="n">max_primaries</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrix.split" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrixDirective">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">TraceableMatrixDirective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrixDirective" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrixDirective.option_spec">
+<code class="sig-name descname">option_spec</code><em class="property"> = {'filter-primaries': &lt;function unchanged&gt;, 'filter-secondaries': &lt;function unchanged&gt;, 'format': &lt;bound method FormatProcessorBase.directive_format_choice of &lt;class 'sphinxcontrib.traceables.matrix.MatrixProcessor'&gt;&gt;, 'relationship': &lt;function unchanged_required&gt;, 'split-primaries': &lt;function nonnegative_int&gt;, 'split-secondaries': &lt;function nonnegative_int&gt;}</em><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrixDirective.option_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrixDirective.optional_arguments">
+<code class="sig-name descname">optional_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrixDirective.optional_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrixDirective.required_arguments">
+<code class="sig-name descname">required_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrixDirective.required_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TraceableMatrixDirective.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TraceableMatrixDirective.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.TwoColumnMatrixFormatter">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">TwoColumnMatrixFormatter</code><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TwoColumnMatrixFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sphinxcontrib.traceables.matrix.TwoColumnMatrixFormatter.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.TwoColumnMatrixFormatter.format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.traceables.matrix.setup">
+<code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.traceable_checkmark">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">traceable_checkmark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.traceable_checkmark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder node to be replaced by a builder-specific checkmark symbol.</p>
+<p>This node type has no traceable-specific attributes.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.traceable_matrix">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">traceable_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.traceable_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder node to be replaced by a traceables matrix.</p>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-relationship</code></dt>
+<dd><p>The name of the relationship to display
+between primary and secondary traceables.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-format</code></dt>
+<dd><p>The name of the format with which to display
+the data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-filter-primaries</code></dt>
+<dd><p>The filter expression to determine
+which traceables are the primary set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-filter-secondaries</code></dt>
+<dd><p>The filter expression to determine
+which traceables are the secondary set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-split-primaries</code></dt>
+<dd><p>If set, causes the output to be
+split after the specified number of primary traceables.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-split-secondaries</code></dt>
+<dd><p>If set, causes the output to be
+split after the specified number of secondary traceables.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sphinxcontrib.traceables.matrix.traceable_matrix_crosstable">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">traceable_matrix_crosstable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.traceable_matrix_crosstable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder node to be replaced by a builder-specific matrix.</p>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">traceables-matrix</code></dt>
+<dd><p>Instance of <a class="reference internal" href="#sphinxcontrib.traceables.matrix.TraceableMatrix" title="sphinxcontrib.traceables.matrix.TraceableMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TraceableMatrix</span></code></a> storing
+data to be presented in the output.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.traceables.matrix.visit_traceable_checkmark_latex">
+<code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">visit_traceable_checkmark_latex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.visit_traceable_checkmark_latex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.traceables.matrix.visit_traceable_matrix_crosstable_latex">
+<code class="sig-prename descclassname">sphinxcontrib.traceables.matrix.</code><code class="sig-name descname">visit_traceable_matrix_crosstable_latex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sphinxcontrib.traceables.matrix.visit_traceable_matrix_crosstable_latex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph.html" class="btn btn-neutral float-right" title="The graph module: Visualization of traceables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="traceables.html" class="btn btn-neutral float-left" title="The traceables module: Core traceables functionality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2015, Christo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

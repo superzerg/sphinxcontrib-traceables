@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; sphinxcontrib.traceables 0.2.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extension internals" href="internals.html" />
+    <link rel="prev" title="Getting started" href="gettingstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> sphinxcontrib.traceables
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#defining-traceables">Defining traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#referencing-traceables">Referencing traceables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#showing-traceables-matrices">Showing traceables matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#showing-traceables-graphs">Showing traceables graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Extension internals</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sphinxcontrib.traceables</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="defining-traceables">
+<h2>Defining traceables<a class="headerlink" href="#defining-traceables" title="Permalink to this headline">¶</a></h2>
+<p>Traceables are defined using the <code class="docutils literal notranslate"><span class="pre">traceable</span></code> directive described below.</p>
+<dl class="rst directive">
+<dt id="directive-traceable">
+<code class="sig-name descname">.. traceable::</code><code class="sig-prename descclassname"> TAG</code><a class="headerlink" href="#directive-traceable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a traceable item. The <code class="docutils literal notranslate"><span class="pre">TAG</span></code> should be a unique string throughout
+the documentation, because it is used to reference the traceable.</p>
+<p>The traceable can be given attributes, such as a title, a version, and
+relationships with other traceables. Attributes are specified using the
+form <code class="docutils literal notranslate"><span class="pre">:&lt;option-name&gt;:</span> <span class="pre">&lt;option-value&gt;</span></code> <a class="footnote-reference brackets" href="#rest-directive-spec" id="id2">1</a>.
+For example, the text below defines a traceable with tag <code class="docutils literal notranslate"><span class="pre">LOREM-IPSUM</span></code>,
+title “Lorem ipsum”, and content “Lorem ipsum dolor sit…”:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">traceable</span><span class="p">::</span> LOREM-IPSUM
+   <span class="nc">:title:</span> Lorem ipsum
+
+   Lorem ipsum dolor sit...
+</pre></div>
+</div>
+<p>Traceable directives have the following properties:</p>
+<ul class="simple">
+<li><p>A single argument defining the traceable’s tag (<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">traceable::</span> <span class="pre">&lt;TAG&gt;</span></code>)</p>
+<ul>
+<li><p>The tag must be unique throughout the documentation</p></li>
+<li><p>The tag may not contain spaces</p></li>
+</ul>
+</li>
+<li><p>Zero or more options (<code class="docutils literal notranslate"><span class="pre">:&lt;option-name&gt;:</span> <span class="pre">&lt;option-value&gt;</span></code>)</p>
+<ul>
+<li><p>The special option <code class="docutils literal notranslate"><span class="pre">title</span></code> defines the traceable’s title</p></li>
+<li><p>Options with a valid relationship name define relationships which
+this traceable has with other traceable</p></li>
+<li><p>Arbitrary option names and values are allowed; if not special options
+as listed above, the values are stored as traceable attributes and can
+be used for filtering/querying traceables</p></li>
+</ul>
+</li>
+<li><p>Optional content</p>
+<ul>
+<li><p>If content is given, it will be parsed as regular ReST.</p></li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="referencing-traceables">
+<h2>Referencing traceables<a class="headerlink" href="#referencing-traceables" title="Permalink to this headline">¶</a></h2>
+<p>Traceables can be referenced using the <code class="docutils literal notranslate"><span class="pre">traceable</span></code> role described below.</p>
+<dl class="rst role">
+<dt id="role-traceable">
+<code class="sig-name descname">:traceable:</code><a class="headerlink" href="#role-traceable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a reference to a traceable defined elsewhere in the
+documentation. For example:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Lorem ipsum <span class="na">:traceable:</span><span class="nv">`LOREM-IPSUM`</span> dolor sit...
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="showing-traceables-matrices">
+<h2>Showing traceables matrices<a class="headerlink" href="#showing-traceables-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Relationships between traceables can be shown using the <code class="docutils literal notranslate"><span class="pre">traceable-matrix</span></code>
+directive described below.</p>
+<dl class="rst directive">
+<dt id="directive-traceable-matrix">
+<code class="sig-name descname">.. traceable-matrix::</code><a class="headerlink" href="#directive-traceable-matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a traceables matrix. The matrix shows pairs of traceables which
+are related to each other by a given relationship (see the
+<code class="docutils literal notranslate"><span class="pre">:relationship:</span></code> option below). Various formats are available for showing
+the pairs of traceables (see the <code class="docutils literal notranslate"><span class="pre">:format:</span></code> option below).</p>
+<p>The following options are available for this directive:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">:relationship:</span></code> – name of traceables relationship <em>(required)</em></dt><dd><p>Specify which relationship between traceables to show in the
+generated matrix.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:filter-primaries:</span></code> – traceable filter expression <em>(optional)</em></dt><dd><p>Specify a filter to limit the primary traceables included in the
+matrix.</p>
+<p>If this option is not given, then all traceables that have
+one or more relationships of the type specified by <code class="docutils literal notranslate"><span class="pre">:relationship:</span></code>
+will be included.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:filter-secondaries:</span></code> – traceable filter expression <em>(optional)</em></dt><dd><p>Specify a filter to limit the secondary traceables included in the
+matrix.</p>
+<p>If this option is not given, then all traceables that have
+one or more relationships of the reverse of the type specified by
+<code class="docutils literal notranslate"><span class="pre">:relationship:</span></code> will be included.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:format:</span></code> – name of format <em>(optional)</em></dt><dd><p>Specify the matrix format to generate. The following
+formats are available:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:format:</span> <span class="pre">table</span></code> <em>(default)</em></p>
+<p>Traditional traceability table format.
+This format allows the following additional options to be set:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">:split-secondaries:</span></code> – positive integer</dt><dd><p>The maximum number of columns to output.
+If more columns would have been necessary, multiple tables will be
+generated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:split-primaries:</span></code> – positive integer</dt><dd><p>The maximum number of rows to output.
+If more rows would have been necessary, multiple tables will be
+generated.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:format:</span> <span class="pre">columns</span></code></p>
+<p>2-column table of related traceables</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:format:</span> <span class="pre">list</span></code></p>
+<p>2-level list of related traceables</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>For example, the directive shown below would generate a table showing
+all traceables related to each other with the <code class="docutils literal notranslate"><span class="pre">children</span></code> relationship:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">traceable-matrix</span><span class="p">::</span>
+   <span class="nc">:relationship:</span> children
+   <span class="nc">:format:</span> table
+</pre></div>
+</div>
+<p>The directive shown above creates a traceability matrix as shown below.
+The image below is a screenshot from the latex-PDF generated for the
+<a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples/constellations">example constellation project</a>
+which is part of this extension’s source code.</p>
+<a class="reference internal image-reference" href="_images/example-matrix-table.png"><img alt="_images/example-matrix-table.png" src="_images/example-matrix-table.png" style="width: 479.0px; height: 393.5px;" /></a>
+</div>
+<div class="section" id="showing-traceables-graphs">
+<h2>Showing traceables graphs<a class="headerlink" href="#showing-traceables-graphs" title="Permalink to this headline">¶</a></h2>
+<p>Relationships between traceables can be shown using the <code class="docutils literal notranslate"><span class="pre">traceable-graph</span></code>
+directive described below.</p>
+<dl class="rst directive">
+<dt id="directive-traceable-graph">
+<code class="sig-name descname">.. traceable-graph::</code><a class="headerlink" href="#directive-traceable-graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a traceables graph. The graph shows all traceables which
+are related to the give traceables (see the
+<code class="docutils literal notranslate"><span class="pre">:tags:</span></code> option below).</p>
+<p>The following options are available for this directive:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">:tags:</span></code> – traceable tags <em>(required)</em></dt><dd><p>Specify comma separated tags for which the graph will be built.
+All traceables related (with any depth) to these tags with the given
+<code class="docutils literal notranslate"><span class="pre">:relationships:</span></code> will be part of the resulting graph.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:relationships:</span></code> – name of traceables relationship <em>(optional)</em></dt><dd><p>Specify which relationships between traceables to show in the
+generated graph. If not specifed, all relationships are shown.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">:caption:</span></code> – string <em>(optional)</em></dt><dd><p>Caption for the graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>For example, the directive shown below would generate a graph showing
+all traceables related to each other with the <code class="docutils literal notranslate"><span class="pre">children</span></code> relationship:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">traceable-graph</span><span class="p">::</span>
+   <span class="nc">:tags:</span> SAGITTA, PEGASUS
+</pre></div>
+</div>
+<p>The directive shown above creates a traceability graph as shown below.
+The image below is taken from the HTML generated for the
+<a class="reference external" href="https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples/constellations">example constellation project</a>
+which is part of this extension’s source code.</p>
+<img alt="_images/example-graph.png" src="_images/example-graph.png" />
+<dl class="footnote brackets">
+<dt class="label" id="rest-directive-spec"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>The formal specification of reStructuredText
+directives is documented here:
+<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#directives">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#directives</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="internals.html" class="btn btn-neutral float-right" title="Extension internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gettingstarted.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2015, Christo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

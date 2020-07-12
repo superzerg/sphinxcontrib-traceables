@@ -1,0 +1,106 @@
+******************************************************************************
+Logical architecture
+******************************************************************************
+
+Behavioral architecture model
+==============================================================================
+
+When Sphinx is run, this extension performs the steps listed below.
+
+#. Initialization
+
+   - Sphinx calls :func:`~sphinxcontrib.traceables.setup()`, which
+     registers the extension's directives, roles, event handlers, etc.
+
+#. Parsing source files
+
+   - When Sphinx encounters a traceables directive or role while parsing
+     input, it calls the associated class.
+   - The directive or role class processes its input and creates one or
+     more nodes which are then inserted into the resulting doctree; these
+     will be processed later after all source files have been parsed.
+   - A directive that defines a new traceable item adds that item to the
+     traceables cache that this extension maintains, so that later
+     processing logic knows about all traceable items.
+
+#. Processing doctrees
+
+   - During initialization, this extension registered a handler for the
+     event-doctree-resolved_ event; that handler is called after all
+     source files have been parsed into doctrees.
+   - The event handler calls the
+     :class:`~sphinxcontrib.traceables.infrastructure.ProcessorManager`
+     to process the given doctree; it in turn calls classes derived from
+     :class:`~sphinxcontrib.traceables.infrastructure.ProcessorBase`
+     to perform the various traceables functionalities.
+
+#. Maintaining state information
+
+   - During initialization, this extension registered a handler for the
+     event-env-purge-doc_ event; that handler is called to clean up
+     any state this extension may keep related to a given source file.
+   - The event handler calls the
+     :class:`~sphinxcontrib.traceables.infrastructure.TraceablesStorage`
+     to remove all information stored in its cache related to the given
+     source file.
+
+.. _event-doctree-resolved:
+   http://sphinx-doc.org/extdev/appapi.html#event-doctree-resolved
+
+.. _event-env-purge-doc:
+   http://sphinx-doc.org/extdev/appapi.html#event-env-purge-doc
+
+During parsing of source files
+==============================================================================
+
+This extension adds the following directives and roles which are used by
+Sphinx during parsing of source.
+
+Traceable directive
+------------------------------------------------------------------------------
+
+When Sphinx encounters a traceable directive during parsing, a 
+:class:`~sphinxcontrib.traceables.traceables.TraceableDirective` is called to 
+process the directive. It creates a target node, so that the traceable 
+can be referenced from elsewhere in the documentation, and a 
+presentation node, to show the traceable's definition at the directive's 
+location in the documentation. 
+
+The attributes defined in the traceable directive may contain references
+to other traceables which cannot be resolved until the entire doctree
+has been resolved. The attributes are therefore stored in a
+:class:`~sphinxcontrib.traceables.traceables.traceable_attribute_list`
+node for later processing.
+
+Traceable role
+------------------------------------------------------------------------------
+
+When Sphinx encounters a traceable role during parsing, a
+:class:`~sphinxcontrib.traceables.traceables.traceable_xref`
+cross reference node is created. Later on that
+note will be replaced by an appropriate final node.
+
+After doctree has been resolved
+==============================================================================
+
+This extension registers the :func:`process_traceables_in_doctree` to be
+called when the ``doctree-resolved`` event fires. That callback function
+invokes the :class:`TraceablesProcessor` to process the main business logic
+of this extension.
+
+The :class:`TraceablesProcessor` performs the following activities:
+
+ #. Collect all traceables defined throughout the documentation
+ #. Analyze relationships between traceables; this is done with help from
+    the :class:`RelationshipManager` class
+ #. Process :class:`traceable_attribute_list` nodes; these are part of
+    traceable directives
+ #. Resolve :class:`traceable_xref` cross reference nodes; these are
+    created by traceable roles, amongst other possible sources
+
+Purging of old state
+==============================================================================
+
+This extension registers the :func:`purge_traceables` to be
+called when the ``env-purge-doc`` event fires. That callback function
+removes the relevant data from the :class:`TraceablesStorage`.

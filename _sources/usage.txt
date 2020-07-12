@@ -1,0 +1,196 @@
+.. _usage:
+
+******************************************************************************
+Usage
+******************************************************************************
+
+
+Defining traceables
+==============================================================================
+
+Traceables are defined using the ``traceable`` directive described below.
+
+.. rst:directive:: .. traceable:: TAG
+
+   Create a traceable item. The ``TAG`` should be a unique string throughout
+   the documentation, because it is used to reference the traceable.
+
+   The traceable can be given attributes, such as a title, a version, and
+   relationships with other traceables. Attributes are specified using the
+   form ``:<option-name>: <option-value>`` [#rest-directive-spec]_.
+   For example, the text below defines a traceable with tag ``LOREM-IPSUM``,
+   title "Lorem ipsum", and content "Lorem ipsum dolor sit...":
+
+   .. code-block:: rest
+
+      .. traceable:: LOREM-IPSUM
+         :title: Lorem ipsum
+
+         Lorem ipsum dolor sit...
+
+   Traceable directives have the following properties:
+
+   - A single argument defining the traceable's tag (``.. traceable:: <TAG>``)
+
+     - The tag must be unique throughout the documentation
+     - The tag may not contain spaces
+
+   - Zero or more options (``:<option-name>: <option-value>``)
+
+     - The special option ``title`` defines the traceable's title
+     - Options with a valid relationship name define relationships which
+       this traceable has with other traceable
+     - Arbitrary option names and values are allowed; if not special options
+       as listed above, the values are stored as traceable attributes and can
+       be used for filtering/querying traceables
+
+   - Optional content
+
+     - If content is given, it will be parsed as regular ReST.
+
+
+Referencing traceables
+==============================================================================
+
+Traceables can be referenced using the ``traceable`` role described below.
+
+.. rst:role:: traceable
+
+   Create a reference to a traceable defined elsewhere in the
+   documentation. For example:
+
+   .. code-block:: rest
+
+      Lorem ipsum :traceable:`LOREM-IPSUM` dolor sit...
+
+
+Showing traceables matrices
+==============================================================================
+
+Relationships between traceables can be shown using the ``traceable-matrix``
+directive described below.
+
+.. rst:directive:: .. traceable-matrix::
+
+   Generate a traceables matrix. The matrix shows pairs of traceables which
+   are related to each other by a given relationship (see the
+   ``:relationship:`` option below). Various formats are available for showing
+   the pairs of traceables (see the ``:format:`` option below).
+
+   The following options are available for this directive:
+
+   ``:relationship:`` -- name of traceables relationship *(required)*
+      Specify which relationship between traceables to show in the
+      generated matrix.
+
+   ``:filter-primaries:`` -- traceable filter expression *(optional)*
+      Specify a filter to limit the primary traceables included in the
+      matrix.
+
+      If this option is not given, then all traceables that have
+      one or more relationships of the type specified by ``:relationship:``
+      will be included.
+
+   ``:filter-secondaries:`` -- traceable filter expression *(optional)*
+      Specify a filter to limit the secondary traceables included in the
+      matrix.
+
+      If this option is not given, then all traceables that have
+      one or more relationships of the reverse of the type specified by
+      ``:relationship:`` will be included.
+
+   ``:format:`` -- name of format *(optional)*
+      Specify the matrix format to generate. The following
+      formats are available:
+
+      - ``:format: table`` *(default)*
+
+        Traditional traceability table format.
+        This format allows the following additional options to be set:
+
+        ``:split-secondaries:`` -- positive integer
+            The maximum number of columns to output.
+            If more columns would have been necessary, multiple tables will be
+            generated.
+
+        ``:split-primaries:`` -- positive integer
+            The maximum number of rows to output.
+            If more rows would have been necessary, multiple tables will be
+            generated.
+
+      - ``:format: columns``
+
+        2-column table of related traceables
+
+      - ``:format: list``
+
+        2-level list of related traceables
+
+For example, the directive shown below would generate a table showing
+all traceables related to each other with the ``children`` relationship:
+
+.. code-block:: rest
+
+   .. traceable-matrix::
+      :relationship: children
+      :format: table
+
+The directive shown above creates a traceability matrix as shown below.
+The image below is a screenshot from the latex-PDF generated for the
+`example constellation project <constellations-example_>`_
+which is part of this extension's source code.
+
+.. image:: _static/example-matrix-table.*
+   :scale: 50%
+
+
+Showing traceables graphs
+==============================================================================
+
+Relationships between traceables can be shown using the ``traceable-graph``
+directive described below.
+
+.. rst:directive:: .. traceable-graph::
+
+   Generate a traceables graph. The graph shows all traceables which
+   are related to the give traceables (see the
+   ``:tags:`` option below).
+
+   The following options are available for this directive:
+
+   ``:tags:`` -- traceable tags *(required)*
+      Specify comma separated tags for which the graph will be built.
+      All traceables related (with any depth) to these tags with the given
+      ``:relationships:`` will be part of the resulting graph.
+
+   ``:relationships:`` -- name of traceables relationship *(optional)*
+      Specify which relationships between traceables to show in the
+      generated graph. If not specifed, all relationships are shown.
+
+   ``:caption:`` -- string *(optional)*
+      Caption for the graph.
+
+
+For example, the directive shown below would generate a graph showing
+all traceables related to each other with the ``children`` relationship:
+
+.. code-block:: rest
+
+    .. traceable-graph::
+       :tags: SAGITTA, PEGASUS
+
+The directive shown above creates a traceability graph as shown below.
+The image below is taken from the HTML generated for the
+`example constellation project <constellations-example_>`_
+which is part of this extension's source code.
+
+.. image:: _static/example-graph.*
+
+.. comment: ==================================================================
+
+.. [#rest-directive-spec] The formal specification of reStructuredText
+   directives is documented here:
+   http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#directives
+
+.. _constellations-example:
+   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples/constellations

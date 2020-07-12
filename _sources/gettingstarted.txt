@@ -1,0 +1,51 @@
+******************************************************************************
+Getting started
+******************************************************************************
+
+Overview
+==============================================================================
+
+.. include:: ../README.rst
+   :start-line: 7
+
+Installation
+==============================================================================
+
+Install this package using ``pip install sphinxcontrib-traceables0.2``, or
+from source using ``python setup.py install``. Then add it to your
+project's Sphinx configuration file ``conf.py``:
+
+.. code-block:: python
+
+   extensions = ['sphinxcontrib-traceables']
+
+Minimal example
+==============================================================================
+
+In your project's documentation, you can define a new traceable as shown
+below. Note that the tag ``LOREM-IPSUM`` given to the traceable should be
+unique throughout the documentation, because it is used to reference the
+traceable.
+
+.. code-block:: rest
+
+  .. traceable:: LOREM-IPSUM
+     :title: Lorem ipsum
+
+     Lorem ipsum dolor sit...
+
+The traceable defined above can be referenced in line as follows:
+
+.. code-block:: rest
+
+   Lorem ipsum :traceable:`LOREM-IPSUM` dolor sit...
+
+See :ref:`usage` for more information about this and more functionality
+provided by this extension.
+
+See the ``example`` directory (available `on GitHub <github-example_>`_)
+within this extension's source code for a complete Sphinx project
+demonstrating various features provided by this extension.
+
+.. _github-example:
+   https://github.com/superzerg/sphinxcontrib-traceables/tree/master/examples

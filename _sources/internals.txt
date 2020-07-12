@@ -1,0 +1,12 @@
+******************************************************************************
+Extension internals
+******************************************************************************
+
+.. toctree::
+   :maxdepth: 2
+
+   logicarch
+   internals/infrastructure
+   internals/traceables
+   internals/matrix
+   internals/graph
