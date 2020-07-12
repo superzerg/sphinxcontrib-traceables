@@ -75,7 +75,7 @@ install:
 - pip3 install twine
 script:
 - pytest --cov=sphinxcontrib.traceables
-- make -C docs/ html
-- touch docs/build/html/.nojekyll
+- sphinx-build docs/ docs/_build/
+- touch docs/_build/.nojekyll
 after_success:
 - coveralls
