@@ -29,12 +29,8 @@ project = u'sphinxcontrib.traceables'
 copyright = u'2020, Yves Renier'
 release = read('..', 'VERSION.txt')    # The full version, incl alpha/beta/rc.
 version = '.'.join(release.split('.')[0:2]) # The short X.Y version.
-
 templates_path = ['_templates']
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'restructuredtext',
-}
+source_suffix = '.txt'
 master_doc = 'index'                   # The master toctree document.
 today_fmt = '%Y-%m-%d'
 exclude_patterns = ['_build']
@@ -51,9 +47,9 @@ html_show_sourcelink = True            # Link to source from pages.
 #intersphinx configuration
 
 intersphinx_mapping = {
-  'constellations': ('../_build/constellations/', './_build/constellations/objects.inv'),
-  'requirements': ('../_build/requirements/', './_build/requirements/objects.inv'),
-  'test-graph': ('../_build/test-graph/', './_build/test-graph/objects.inv'),
-  'test-list': ('../_build/test-list/', './_build/test-list/objects.inv'),
-  'test-matrix': ('../_build/test-matrix/', './_build/test-matrix/objects.inv'),
+  'constellations': ('constellations/', './_build/constellations/objects.inv'),
+  'requirements': ('requirements/', './_build/requirements/objects.inv'),
+  'test-graph': ('test-graph/', './_build/test-graph/objects.inv'),
+  'test-list': ('test-list/', './_build/test-list/objects.inv'),
+  'test-matrix': ('test-matrix/', './_build/test-matrix/objects.inv'),
 }
